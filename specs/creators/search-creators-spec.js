@@ -5,7 +5,7 @@ const SearchPage = require("../../page_objects/creators/search-page");
 const DashboardPage = require("../../page_objects/creators/dashboard-creators-page");
 
 
-describe("Login", () => {
+describe("Search as a Creator", () => {
   // This hook runs befor tests
   before(() => {
     // Deleting cookies
@@ -72,6 +72,36 @@ describe("Login", () => {
     console.log(searchProducts);    
     expect(searchProducts.length).to.equal(3);      
     searchProducts.every((i) => expect(i).to.contain("ball"));
+  });
+
+  it("FL-11 Search Creators only", () => {
+    // Press search menu button
+    DashboardPage.searchBtn.waitForDisplayed();
+    DashboardPage.searchBtn.click();
+    
+
+    // Press Creators section button
+    SearchPage.searchCreatorsOnly.waitForDisplayed();
+    SearchPage.searchCreatorsOnly.click();
+    
+    // Type "ball" and press enter
+    SearchPage.search("ball");
+    browser.keys("Enter");   
+
+    // Wait for search results to display
+    browser.waitUntil(() => {
+      return (SearchPage.searchResultsCreatorsOnly.map((elem) => elem.isDisplayed()).length > 3);
+    },
+    { timeout: 10000, timeoutMsg: "Creators results were not visible" }
+    );
+    
+    // Verify that user can see relevant search results in Creators section
+    const searchCreatorsOnly = [];
+    SearchPage.searchResultsCreatorsOnly.forEach((element) => {
+      if(element.getText().length>0) searchCreatorsOnly.push(element.getText().toLowerCase());
+    });    
+    expect(searchCreatorsOnly.length).to.equal(10);      
+    searchCreatorsOnly.every((i) => expect(i).to.contain("ball"));    
   });
 });
 
