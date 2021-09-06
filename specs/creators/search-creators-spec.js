@@ -5,7 +5,7 @@ const SearchPage = require("../../page_objects/creators/search-page");
 const DashboardPage = require("../../page_objects/creators/dashboard-creators-page");
 
 
-describe("Login", () => {
+describe("Search", () => {
   // This hook runs befor tests
   before(() => {
     // Deleting cookies
@@ -26,7 +26,7 @@ describe("Login", () => {
     browser.deleteCookies();
   });
 
-  it("FL-9 User can see relevant search results after searching for ball", () => {
+  it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
     DashboardPage.searchBtn.waitForDisplayed();
     DashboardPage.searchBtn.click();
