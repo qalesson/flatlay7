@@ -1,5 +1,5 @@
-const LoginPage = require("../../page_objects/login-page");
-const Credentials = require("../../data/credentials.json");
+const LoginPage = require("../../../page_objects/login-page");
+const Credentials = require("../../../data/credentials.json");
 const { expect, assert } = require("chai");
 const SearchPage = require("../../page_objects/creators/search-page");
 const DashboardPage = require("../../page_objects/creators/dashboard-creators-page");
@@ -58,6 +58,7 @@ describe("Search", () => {
     expect(searchCreators.length).to.equal(4);       
     searchFeeds.every((i) => expect(i).to.contain("ball"));
 
+    // Scroll webpage down to Products section
     SearchPage.moveToProducts.moveTo();
 
     // Verify that user can see relevant search results in Products section
@@ -68,8 +69,7 @@ describe("Search", () => {
     const searchProducts = [];
     SearchPage.searchResultsProducts.forEach((element) => {
       if(element.getText().length>0) searchProducts.push(element.getText().toLowerCase());
-    });
-    console.log(searchProducts);    
+    });        
     expect(searchProducts.length).to.equal(3);      
     searchProducts.every((i) => expect(i).to.contain("ball"));
   });
