@@ -1,8 +1,8 @@
-const LoginPage = require("../../page_objects/login-page");
-const Credentials = require("../../data/credentials.json");
+const LoginPage = require("../../../page_objects/login-page");
+const Credentials = require("../../../data/credentials.json");
 const { expect, assert } = require("chai");
-const SearchPage = require("../../page_objects/creators/search-page");
-const DashboardPage = require("../../page_objects/creators/dashboard-creators-page");
+const SearchPage = require("../../../page_objects/creators/search-creators-page/search-page");
+const DashboardPage = require("../../../page_objects/creators/dashboard-creators-page/dashboard-creators-page");
 
 describe("Search", () => {
   // This hook runs befor tests
