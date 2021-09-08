@@ -7,4 +7,4 @@ describe('Login - Creators', () => {
         LoginPage.login({ email: 'sergii@khromchenko.com', password: 'sergii@khromchenko.com' });
         DashboardPage.$accountSettingsLnk.waitForDisplayed({timeoutMsg: 'User was not able to login'});
     })
-})
+}) 
