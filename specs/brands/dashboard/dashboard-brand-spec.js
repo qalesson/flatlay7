@@ -10,25 +10,25 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it('Should get redirected to discover page upon click on discover FL-34', () => {
+    it('FL-34', () => {
         dashboardBrandsPage.$discoverButton.waitForClickable();
         dashboardBrandsPage.$discoverButton.click();
         dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
     });
 
-    it('Should get redirected to campaigns page upon click on campaigns FL-35', () => {
+    it('FL-35', () => {
         dashboardBrandsPage.$campaignsButton.waitForClickable()
         dashboardBrandsPage.$campaignsButton.click();
         dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved FL-68', () => {
+    it('FL-68', () => {
         dashboardBrandsPage.$savedButton.waitForClickable();
         dashboardBrandsPage.$savedButton.click();
         dashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
-    it('Should get redirected to home page upon click on home FL-69', () => {
+    it('FL-69', () => {
         dashboardBrandsPage.$homeButton.waitForClickable();
         dashboardBrandsPage.$homeButton.click();
         dashboardBrandsPage.$currentUserName.waitForDisplayed();
