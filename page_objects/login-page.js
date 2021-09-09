@@ -9,7 +9,7 @@ class Login {
     get $continueLnk() { return $('span=Continue'); }
     get $brandsLnk() { return $('[class="btn"] [class="d-none d-md-inline mr-1"]'); }
     get $iframe () { return $('[data-testid="dialog_iframe"]');}
-    get $closeIframe () { return $('[aria-label="close"]');}
+    get $fBPopupCloseLnk () { return $('[aria-label="close"]');}
 
     // Helper method to avoid code duplication
     login({ email, password, portal, url = 'login' }) {
@@ -34,7 +34,7 @@ class Login {
     closeFBPopup() {
         if (this.$iframe.isDisplayed()) {
             browser.switchToFrame(this.$iframe);
-            this.$closeIframe.click()
+            this.$fBPopupCloseLnk.click()
             browser.switchToFrame(null);
         }
     }
