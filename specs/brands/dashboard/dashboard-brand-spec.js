@@ -1,9 +1,13 @@
 const LoginPage = require('../../../page_objects/login-page');
 const dashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
+const Credentials = require("../../../data/credentials.json");
+
+const email = Credentials.brands.login.email;
+const password = Credentials.brands.login.password;
 
 describe('Dashboard - Brand', () => {
     beforeEach(function () {
-        LoginPage.login({ email: 'qalesson@gmail.com', password: 'qalesson@gmail.com', portal: 'brands' });
+        LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
     it('Should get redirected to discover page upon click on discover FL-34', () => {

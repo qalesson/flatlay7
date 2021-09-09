@@ -17,5 +17,8 @@
     "@wdio/sync": "^7.3.0",
     "chromedriver": "^92.0.0",
     "wdio-chromedriver-service": "^7.0.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
   }
 }
