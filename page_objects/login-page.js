@@ -1,19 +1,29 @@
 "use strict";
 class Login {
     // Reusable selector getters that will help us to avoid selector duplicates
-    get $emailTxt() {return $('[name="email"]');}
-    get $passwordTxt() {return $('[placeholder="password"]');}
-    get $continueLnk() {return $('span=Continue');}
-    get $brandsLnk() {return $('span=Brand');}
-    
+    get $emailTxt() { return $('[name="email"]'); }
+    get $passwordTxt() { return $('[placeholder="password"]'); }
+    get $continueLnk() { return $('span=Continue'); }
+    get $brandsLnk() { return $('span=Brand'); }
+
+
     // Helper method to avoid code duplication
-    login({email, password, portal ,url = 'login'}){
+    login({ email, password, portal, url = 'login' }) {
         // Navigate to specific url. You will be redirected after login
         browser.url('./' + url);
 
         // Login as brand
-        if(portal === 'brands') this.$brandsLnk.click();
-
+        if (portal === 'brands') {
+            if ($('[data-testid="dialog_iframe"]').isDisplayed()) {
+                browser.switchToFrame($('[data-testid="dialog_iframe"]'));
+                $('[aria-label="close"]').waitForClickable();
+                $('[aria-label="close"]').click();
+                browser.switchToFrame(null);
+                this.$brandsLnk.click();
+            }
+            this.$brandsLnk.waitForDisplayed();
+            this.$brandsLnk.click();
+        };
 
         // Type in email and password
         this.$emailTxt.waitForClickable();
