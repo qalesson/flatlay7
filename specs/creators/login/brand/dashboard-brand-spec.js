@@ -6,28 +6,27 @@ describe('Login - Brand', () => {
         LoginPage.login({ email: 'qalesson@gmail.com', password: 'qalesson@gmail.com', portal: 'brands' });
     });
 
-    it('Should get redirected to discover page upon click on discover', () => {
+    it('Should get redirected to discover page upon click on discover FL-34', () => {
         dashboardBrandsPage.$discoverButton.waitForClickable();
         dashboardBrandsPage.$discoverButton.click();
-        dashboardBrandsPage.$confirmDiscoverPage.waitForDisplayed();
+        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
     });
 
-    it('Should get redirected to campaigns page upon click on campaigns', () => {
+    it('Should get redirected to campaigns page upon click on campaigns FL-35', () => {
         dashboardBrandsPage.$campaignsButton.waitForClickable()
         dashboardBrandsPage.$campaignsButton.click();
-        dashboardBrandsPage.$confirmCampaignsPage.waitForDisplayed();
+        dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved', () => {
+    it('Should get redirected to saved page upon click on saved FL-36', () => {
         dashboardBrandsPage.$savedButton.waitForClickable();
         dashboardBrandsPage.$savedButton.click();
-        dashboardBrandsPage.$confirmSavedPage.waitForDisplayed();
+        dashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
-    it('Should get redirected to home page upon click on home', () => {
+    it('Should get redirected to home page upon click on home FL-37', () => {
         dashboardBrandsPage.$homeButton.waitForClickable();
         dashboardBrandsPage.$homeButton.click();
-        dashboardBrandsPage.$confirmHomePage.waitForDisplayed();
+        dashboardBrandsPage.$currentUserName.waitForDisplayed();
     });
-    
 })

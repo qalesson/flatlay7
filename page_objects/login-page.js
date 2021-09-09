@@ -17,7 +17,10 @@ class Login {
         browser.url('./' + url);
         // Login as brand
         if (portal === 'brands') {
+            // Close FB popup if its there
             this.closeThatFkngPopup();
+            // Click on brands login radio button
+            this.$brandsLnk.click();
         };
         // Type in email and password
         this.$emailTxt.waitForClickable();
@@ -34,7 +37,6 @@ class Login {
             this.$closeiFrame.click()
             browser.switchToFrame(null);
         }
-        this.$brandsLnk.click();
     }
 }
 module.exports = new Login();
