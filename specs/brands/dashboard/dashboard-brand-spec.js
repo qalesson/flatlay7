@@ -1,7 +1,7 @@
-const LoginPage = require('../../../../page_objects/login-page');
-const dashboardBrandsPage = require('../../../../page_objects/brands/dashboard-brands-page');
+const LoginPage = require('../../../page_objects/login-page');
+const dashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 
-describe('Login - Brand', () => {
+describe('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: 'qalesson@gmail.com', password: 'qalesson@gmail.com', portal: 'brands' });
     });

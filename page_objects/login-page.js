@@ -1,6 +1,6 @@
 "use strict";
 
-const dashboardBrandsPage = require("./brands/dashboard-brands-page");
+const dashboardBrandsPage = require("./brands/dashboard/dashboard-brands-page");
 
 class Login {
     // Reusable selector getters that will help us to avoid selector duplicates
@@ -8,8 +8,8 @@ class Login {
     get $passwordTxt() { return $('[placeholder="password"]'); }
     get $continueLnk() { return $('span=Continue'); }
     get $brandsLnk() { return $('[class="btn"] [class="d-none d-md-inline mr-1"]'); }
-    get $iFrame () { return $('[data-testid="dialog_iframe"]');}
-    get $closeiFrame () { return $('[aria-label="close"]');}
+    get $iframe () { return $('[data-testid="dialog_iframe"]');}
+    get $closeIframe () { return $('[aria-label="close"]');}
 
     // Helper method to avoid code duplication
     login({ email, password, portal, url = 'login' }) {
@@ -18,7 +18,7 @@ class Login {
         // Login as brand
         if (portal === 'brands') {
             // Close FB popup if its there
-            this.closeThatFkngPopup();
+            this.closeFBPopup();
             // Click on brands login radio button
             this.$brandsLnk.click();
         };
@@ -31,10 +31,10 @@ class Login {
         this.$continueLnk.click();
     }
 
-    closeThatFkngPopup() {
-        if (this.$iFrame.isDisplayed()) {
-            browser.switchToFrame(this.$iFrame);
-            this.$closeiFrame.click()
+    closeFBPopup() {
+        if (this.$iframe.isDisplayed()) {
+            browser.switchToFrame(this.$iframe);
+            this.$closeIframe.click()
             browser.switchToFrame(null);
         }
     }
