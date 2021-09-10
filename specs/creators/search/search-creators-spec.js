@@ -15,14 +15,14 @@ describe("Search", () => {
     DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
   });
 
-  it("FL-11 Search Creators only", () => {
+  it("FL-12 Search Contents only", () => {
     // Press search menu button
     DashboardPage.$searchBtn.waitForDisplayed();
     DashboardPage.$searchBtn.click();
 
-    // Press Creators section button
-    SearchPage.$searchCreatorsOnly.waitForDisplayed();
-    SearchPage.$searchCreatorsOnly.click();
+    // Press Contents section button
+    SearchPage.$searchContentsOnly.waitForDisplayed();
+    SearchPage.$searchContentsOnly.click();
 
     // Type "ball" and press enter
     SearchPage.search("ball");
@@ -30,18 +30,19 @@ describe("Search", () => {
 
     // Wait for search results to display
     browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsCreatorsOnly.map((elem) => elem.isDisplayed()).length > 3);
+      return (SearchPage.$$searchResultsContentsOnly.map((elem) => elem.isDisplayed()).length > 3);
     },
-    { timeout: 10000, timeoutMsg: "Creators results were not visible" }
+    { timeout: 10000, timeoutMsg: "Contents results were not visible" }
     );
 
-    // Verify that user can see relevant search results in Creators section
-    const searchCreatorsOnly = [];
-    SearchPage.$$searchResultsCreatorsOnly.forEach((element) => {
-      if(element.getText().length>0) searchCreatorsOnly.push(element.getText().toLowerCase());
-    });        
-    expect(searchCreatorsOnly.length).to.equal(10);      
-    searchCreatorsOnly.every((i) => expect(i).to.contain("ball"));    
+    // Verify that user can see relevant search results in Contents section
+    const searchContentsOnly = [];
+    SearchPage.$$searchResultsContentsOnly.forEach((element) => {
+      if(element.getText().length>0) searchContentsOnly.push(element.getText().toLowerCase());
+    });
+    console.log(searchContentsOnly);        
+    expect(searchContentsOnly.length).to.equal(8);      
+    searchContentsOnly.every((i) => expect(i).to.contain("ball"));    
   });
 });
 

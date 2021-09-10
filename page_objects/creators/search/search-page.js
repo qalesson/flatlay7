@@ -5,7 +5,9 @@ class SearchPage {
     get $productsLbl() { return $('[class="search-component products all"]');}
     get $$searchResultsProducts() { return $$('.products.all .bullet-wrap > div');}
     get $searchCreatorsOnly() { return $('.actions p:nth-child(2)');}
-    get $$searchResultsCreatorsOnly() { return $$('.list .name');}   
+    get $$searchResultsCreatorsOnly() { return $$('.list .name');}
+    get $searchContentsOnly() { return $('.actions p:nth-child(3)');} 
+    get $$searchResultsContentsOnly() { return $$('[class="col-8 feed-detail-container"]');}  
         
     search(searchTask) {
         this.$searchTxt.waitForClickable();
