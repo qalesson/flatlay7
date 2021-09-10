@@ -39,8 +39,7 @@ describe("Search", () => {
     const searchCreatorsOnly = [];
     SearchPage.$$searchResultsCreatorsOnly.forEach((element) => {
       if(element.getText().length>0) searchCreatorsOnly.push(element.getText().toLowerCase());
-    });
-    console.log(searchCreatorsOnly);    
+    });        
     expect(searchCreatorsOnly.length).to.equal(10);      
     searchCreatorsOnly.every((i) => expect(i).to.contain("ball"));    
   });
