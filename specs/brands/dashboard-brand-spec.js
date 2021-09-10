@@ -4,18 +4,7 @@ const DashboardPageBrands = require('../../page_objects/brands/dashboard-brands-
 const expect = require('chai').expect;
 
 describe('Dashboard - Brands', () => {
-    it('User should be able to see 4 monthly plans on "Plans" page', () => {
-        LoginPage.login({ email: 'qalesson@gmail.com', password: 'qalesson@gmail.com', portal: 'brands' });
-        
-        DashboardPageBrands.$upgradeBtn.waitForDisplayed();
-        DashboardPageBrands.$upgradeBtn.click();
-        let plan = DashboardPageBrands.$pricingList.getText();
-        expect(plan).to.contain('BASIC');
-        expect(plan).to.contain('PRO');
-        expect(plan).to.contain('PREMIUM');
-        expect(plan).to.contain('ENTERPRISE');
-    }),
-
+    
     it('User should be able to see 4 yearly plans on "Plans" page', () => {
         LoginPage.login({ email: 'qalesson@gmail.com', password: 'qalesson@gmail.com', portal: 'brands' });
         
