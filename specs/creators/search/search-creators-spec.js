@@ -17,8 +17,8 @@ describe("Search", () => {
 
   it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
-    DashboardPage.searchBtn.waitForDisplayed();
-    DashboardPage.searchBtn.click();
+    DashboardPage.$searchBtn.waitForDisplayed();
+    DashboardPage.$searchBtn.click();
 
     // Type "ball" and press enter
     SearchPage.search("ball");
