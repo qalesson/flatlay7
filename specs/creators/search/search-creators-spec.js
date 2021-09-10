@@ -17,8 +17,8 @@ describe("Search", () => {
 
   it("FL-11 Search Creators only", () => {
     // Press search menu button
-    DashboardPage.searchBtn.waitForDisplayed();
-    DashboardPage.searchBtn.click();
+    DashboardPage.$searchBtn.waitForDisplayed();
+    DashboardPage.$searchBtn.click();
 
     // Press Creators section button
     SearchPage.$searchCreatorsOnly.waitForDisplayed();
