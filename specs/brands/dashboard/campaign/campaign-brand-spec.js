@@ -12,12 +12,11 @@ describe("Dashboard - Brand", () => {
 
   it.only("Should be able to create campaign FL-32", () => {
     dashboardBrandsPage.$createCampaignButton.waitForClickable();
+    dashboardBrandsPage.$createCampaignButton.click()
   });
 
   it("Should not be able to create campaign with past date FL-33", () => {
-    // dashboardBrandsPage.$campaignsButton.waitForClickable();
-    // dashboardBrandsPage.$campaignsButton.click();
-    // dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
+    
   });
 
 });
