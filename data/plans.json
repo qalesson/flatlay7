@@ -1,0 +1,51 @@
+{
+    "Basic": {
+        "name": "BASIC",
+        "body": {
+            "price": "FREE",
+            "description1": "Social audience modeling",
+            "description2": "Create 1 custom lists",
+            "description3": "Run open campaigns in the community",
+            "description4": "Product integration",
+            "description5": "Content upload"
+        }
+    },
+    "Pro": {
+        "name": "PRO",
+        "body": {
+            "price": "$1,000",
+            "description1": "Everything in BASIC plus:",
+            "description2": "Social audience modeling",
+            "description3": "Create 5 custom lists",
+            "description4": "Invite 100 creators monthly",
+            "description5": "Run 2 private campaigns monthly",
+            "description6": "Brand Analytics",
+            "description7": "1-1 Campaigns and analytics",
+            "description8": "Audience insights and affinities"
+        }
+    },
+    "Premium": {
+        "name": "PREMIUM",
+        "body": {
+            "price": "$3,300",
+            "description1": "Everything in PRO plus:",
+            "description2": "Social audience modeling",
+            "description3": "Create 10 custom lists",
+            "description4": "Invite 1,000 creators monthly",
+            "description5": "Run 5 private campaigns monthly",
+            "description6": "Co-branded collaborations",
+            "description7": "1-1 Account management support"
+        }
+    },
+    "Enterprise": {
+        "name": "ENTERPRISE",
+        "body": {
+            "description1": "Everything in PREMIUM plus:",
+            "description2": "Premium insights",
+            "description3": "Content analysis & trend forecasting",
+            "description4": "Custom social audience modeling",
+            "description5": "Predictive media-buying optimization",
+            "description6": "Intuitive Content Stream™"
+        }
+    }
+} 

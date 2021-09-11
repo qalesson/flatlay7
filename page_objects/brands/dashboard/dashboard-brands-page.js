@@ -13,5 +13,8 @@ class DashboardBrand {
     get $pricingList() {return $('[class="row pricing-plan"]');}
     get $yearlyPlansBtn() {return $('[class="p-2 text-center"]');}
     get $premiumPlanTxt() {return $('[class="card-header pricing-prem-plan d-flex flex-row justify-content-between align-center"]');} 
+    get $$basicEnterprisePlanTxt() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3 ng-star-inserted"]');}
+    get $$proPremiumPlanTxt() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3"]');}
+    get $$planRowTxt() {return $$('.col-sm-6.col-xs-12');}
 }
 module.exports = new DashboardBrand();
