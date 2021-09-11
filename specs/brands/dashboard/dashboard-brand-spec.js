@@ -47,13 +47,12 @@ describe('Dashboard - Brand', () => {
 
             //Verify all the text in BASIC plan
             const basic = [];
-
             dashboardBrandsPage.$$basicEnterprisePlanTxt.forEach(element => {
                 basic.push(element.getText())
 
             })
             expect(basic[0]).to.contain(Plans.Basic.name);
-            expect(basic[0]).to.contain(Plans.Basic.body.price);
+            expect(basic[0]).to.contain(Plans.Basic.body.monthlyPrice);
             expect(basic[0]).to.contain(Plans.Basic.body.description1);
             expect(basic[0]).to.contain(Plans.Basic.body.description2);
             expect(basic[0]).to.contain(Plans.Basic.body.description3);
@@ -61,14 +60,13 @@ describe('Dashboard - Brand', () => {
             expect(basic[0]).to.contain(Plans.Basic.body.description5);
 
             //Verify all the text in PRO plan
-
             const pro = [];
             dashboardBrandsPage.$$proPremiumPlanTxt.forEach(element => {
                 pro.push(element.getText())
             })
 
             expect(pro[0]).to.contain(Plans.Pro.name);
-            expect(pro[0]).to.contain(Plans.Pro.body.price);
+            expect(pro[0]).to.contain(Plans.Pro.body.monthlyPrice);
             expect(pro[0]).to.contain(Plans.Pro.body.description1);
             expect(pro[0]).to.contain(Plans.Pro.body.description2);
             expect(pro[0]).to.contain(Plans.Pro.body.description3);
@@ -79,14 +77,13 @@ describe('Dashboard - Brand', () => {
             expect(pro[0]).to.contain(Plans.Pro.body.description8);
 
             //Verify all the text in PREMIUM plan
-
             const premium = [];
             dashboardBrandsPage.$$proPremiumPlanTxt.forEach(element => {
                 premium.push(element.getText())
             })
 
             expect(premium[1]).to.contain(Plans.Premium.name);
-            expect(premium[1]).to.contain(Plans.Premium.body.price);
+            expect(premium[1]).to.contain(Plans.Premium.body.monthlyPrice);
             expect(premium[1]).to.contain(Plans.Premium.body.description1);
             expect(premium[1]).to.contain(Plans.Premium.body.description2);
             expect(premium[1]).to.contain(Plans.Premium.body.description3);
@@ -96,7 +93,6 @@ describe('Dashboard - Brand', () => {
             expect(premium[1]).to.contain(Plans.Premium.body.description7);
 
             //Verify all the text in ENTERPRISE plan
-
             const enterprise = [];
             dashboardBrandsPage.$$basicEnterprisePlanTxt.forEach(element => {
                 enterprise.push(element.getText())

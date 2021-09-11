@@ -2,7 +2,8 @@
     "Basic": {
         "name": "BASIC",
         "body": {
-            "price": "FREE",
+            "monthlyPrice": "FREE",
+            "annualPrice": "FREE",
             "description1": "Social audience modeling",
             "description2": "Create 1 custom lists",
             "description3": "Run open campaigns in the community",
@@ -13,7 +14,8 @@
     "Pro": {
         "name": "PRO",
         "body": {
-            "price": "99",
+            "monthlyPrice": "$99",
+            "annualPrice": "$1,000",
             "description1": "Everything in BASIC plus:",
             "description2": "Social audience modeling",
             "description3": "Create 5 custom lists",
@@ -27,7 +29,8 @@
     "Premium": {
         "name": "PREMIUM",
         "body": {
-            "price": "299",
+            "monthlyPrice": "$299",
+            "annualPrice": "$3,300",
             "description1": "Everything in PRO plus:",
             "description2": "Social audience modeling",
             "description3": "Create 10 custom lists",
