@@ -55,7 +55,7 @@ describe('Dashboard - Brand', () => {
                 basic.push(element.getText())
             })
             expect(basic[0]).to.contain(Plans.Basic.name);
-            expect(basic[0]).to.contain(Plans.Basic.body.price);
+            expect(basic[0]).to.contain(Plans.Basic.body.annualPrice);
             expect(basic[0]).to.contain(Plans.Basic.body.description1);
             expect(basic[0]).to.contain(Plans.Basic.body.description2);
             expect(basic[0]).to.contain(Plans.Basic.body.description3);
@@ -69,7 +69,7 @@ describe('Dashboard - Brand', () => {
             })
 
             expect(pro[0]).to.contain(Plans.Pro.name);
-            expect(pro[0]).to.contain(Plans.Pro.body.price);
+            expect(pro[0]).to.contain(Plans.Pro.body.annualPrice);
             expect(pro[0]).to.contain(Plans.Pro.body.description1);
             expect(pro[0]).to.contain(Plans.Pro.body.description2);
             expect(pro[0]).to.contain(Plans.Pro.body.description3);
@@ -86,7 +86,7 @@ describe('Dashboard - Brand', () => {
             })
 
             expect(premium[1]).to.contain(Plans.Premium.name);
-            expect(premium[1]).to.contain(Plans.Premium.body.price);
+            expect(premium[1]).to.contain(Plans.Premium.body.annualPrice);
             expect(premium[1]).to.contain(Plans.Premium.body.description1);
             expect(premium[1]).to.contain(Plans.Premium.body.description2);
             expect(premium[1]).to.contain(Plans.Premium.body.description3);
