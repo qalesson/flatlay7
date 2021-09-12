@@ -25,6 +25,7 @@ describe("Dashboard - Brand", () => {
     createCampaignPage.$datePickerToday.click()
     createCampaignPage.$inputForCampaignEndDate.click();
     createCampaignPage.$datePickerToday.click();
+    createCampaignPage.$nextStepButton.click()
 
     browser.debug()
   });
