@@ -8,6 +8,9 @@ const password = Credentials.brands.login.password;
 
 const campaignName = "Test Campaign Name for Test Case FL-32"
 
+const date = new Date()
+const today = date.toLocaleDateString("en-US");
+
 describe("Dashboard - Brand", () => {
   beforeEach(function () {
     LoginPage.login({ email: email, password: password, portal: "brands" });
@@ -18,6 +21,8 @@ describe("Dashboard - Brand", () => {
     dashboardBrandsPage.$createCampaignButton.click()
     createCampaignPage.$inputForCampaignName.waitForClickable()
     createCampaignPage.$inputForCampaignName.setValue(campaignName);
+    createCampaignPage.$inputForCampaignStartDate.click()
+    createCampaignPage.$datePickerToday.click()
 
     browser.debug()
   });
