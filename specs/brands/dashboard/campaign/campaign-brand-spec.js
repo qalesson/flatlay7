@@ -23,6 +23,8 @@ describe("Dashboard - Brand", () => {
     createCampaignPage.$inputForCampaignName.setValue(campaignName);
     createCampaignPage.$inputForCampaignStartDate.click()
     createCampaignPage.$datePickerToday.click()
+    createCampaignPage.$inputForCampaignEndDate.click();
+    createCampaignPage.$datePickerToday.click();
 
     browser.debug()
   });
