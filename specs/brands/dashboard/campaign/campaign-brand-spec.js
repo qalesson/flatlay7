@@ -5,7 +5,6 @@ const createCampaignPage = require("../../../../page_objects/brands/dashboard/ca
 const campaignsPage = require("../../../../page_objects/brands/dashboard/campaign/campaigns-page")
 
 const assert = require("chai").assert;
-const expect = require("chai").expect;
 
 describe("Dashboard - Brand", () => {
 
@@ -28,7 +27,7 @@ describe("Dashboard - Brand", () => {
     createCampaignPage.$nextStepButton.click();
   }
 
-  it.only("Should be able to create campaign FL-32", () => {
+  it.skip("Should be able to create campaign FL-32", () => {
     dashboardBrandsPage.$createCampaignButton.waitForClickable({timeout: 10000});
     dashboardBrandsPage.$createCampaignButton.click();
     //Creating Campaign
@@ -103,6 +102,23 @@ describe("Dashboard - Brand", () => {
   });
 
   it("Should not be able to create campaign with past date FL-33", () => {
+    dashboardBrandsPage.$createCampaignButton.waitForClickable({
+      timeout: 10000,
+    });
+    dashboardBrandsPage.$createCampaignButton.click();
+    //Creating Campaign
+    //step 1/9
+    createCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
+    createCampaignPage.$inputForCampaignName.waitForClickable();
+    createCampaignPage.$inputForCampaignName.setValue(campaignName);
+    createCampaignPage.$inputForCampaignStartDate.click();
+    const dayBefore = (createCampaignPage.$datePickerToday.getText() - 1) ;
+    
+    assert.equal(
+      $(`div=${dayBefore}`).isClickable(),
+      false,
+      "date of the previous day is not clickable"
+    );
     
   });
 
