@@ -7,5 +7,13 @@ class CreateCampaingBrand {
     get $nextStepButton () { return $(".next-step-button");}
     get $campaignContenFirstButton () { return $("p=Photo and Image");}
     get $directionOfContentTextArea () { return $("#DirectionOfContent");}
+    get $campaignGoalsDropdownIcon () { return $('.ng-arrow-wrapper');}
+    get $campaignGoalsDropdownFirstOption () { return $("strong=Content distribution");}
+    get $campaignBriefTextAres () { return $('[placeholder="Campaign brief"]'); }
+    get $addProductToPrometeButton () { return $("button=+ Add a product you want to promote"); }
+    get $productToPromoteLinkInput () { return $('[placeholder="Paste or type a link to your product"]');}
+    get $productToPromoteLinkAddButton () { return $("span=Add");}
+
+   
 }
 module.exports = new CreateCampaingBrand();
