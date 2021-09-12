@@ -7,6 +7,7 @@ const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
 const campaignName = "Test Campaign Name for Test Case FL-32"
+const campaignDirextionTxt = "Test Campaign direction text for Test Case FL-32"
 
 const date = new Date()
 const today = date.toLocaleDateString("en-US");
@@ -28,6 +29,8 @@ describe("Dashboard - Brand", () => {
     createCampaignPage.$datePickerToday.click();
     createCampaignPage.$nextStepButton.click()
     createCampaignPage.$campaignContenFirstButton.click()
+    createCampaignPage.$nextStepButton.click();
+    createCampaignPage.$directionOfContentTextArea.setValue(campaignDirextionTxt)
     createCampaignPage.$nextStepButton.click();
 
     browser.debug()
