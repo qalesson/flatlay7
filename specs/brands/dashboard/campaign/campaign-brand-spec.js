@@ -17,6 +17,7 @@ describe("Dashboard - Brand", () => {
   });
 
   it.only("Should be able to create campaign FL-32", () => {
+
     dashboardBrandsPage.$createCampaignButton.waitForClickable();
     dashboardBrandsPage.$createCampaignButton.click()
     createCampaignPage.$inputForCampaignName.waitForClickable()
@@ -26,6 +27,8 @@ describe("Dashboard - Brand", () => {
     createCampaignPage.$inputForCampaignEndDate.click();
     createCampaignPage.$datePickerToday.click();
     createCampaignPage.$nextStepButton.click()
+    createCampaignPage.$campaignContenFirstButton.click()
+    createCampaignPage.$nextStepButton.click();
 
     browser.debug()
   });
