@@ -8,11 +8,6 @@ const email = Credentials.creators.login.email;
 const password = Credentials.creators.login.password;
 
 describe("Search", () => {
-  // This hook runs befor tests
-  before(() => {
-    // Deleting cookies
-    browser.deleteCookies();
-  });
   beforeEach(() => {
     // Go to login page and login as a Creator
     LoginPage.login({email: email, password: password});
@@ -20,16 +15,7 @@ describe("Search", () => {
     // Press search menu button
     DashboardPage.$searchBtn.waitForDisplayed();
     DashboardPage.$searchBtn.click();    
-  });
-  // This hook runs after each test
-  afterEach(() => {
-    // Deleting cookies after each session will allow us to have new session before next test starts
-    browser.deleteCookies();
-  });
-  after(() => {
-    // Deleting cookies after session
-    browser.deleteCookies();
-  });
+  }); 
 
   it("FL-11 Search Creators only", () => {
     // Press Creators section button
