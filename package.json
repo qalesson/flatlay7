@@ -2,11 +2,6 @@
   "name": "flatlay7",
   "version": "1.0.0",
   "description": "How to set up framework?\r 1. Git clone https://github.com/qalesson/flatlay7.git or git@github.com:qalesson/flatlay7.git if you use ssh token\r 2. Run following command in a terminal: npm i\r 3. You are set",
-  "main": "local.conf.js",
-  "dependencies": {
-    "chai": "^4.3.4",
-    "chromedriver": "^93.0.1"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "mocha"
