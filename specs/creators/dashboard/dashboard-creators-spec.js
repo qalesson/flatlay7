@@ -6,7 +6,7 @@ const { expect } = require("chai");
 
 const email = Credentials.creators.dashboard.email;
 const password = Credentials.creators.dashboard.password;
-const viewPublicProfileUrl = 'https://new.flatlay.io/profile/nastia'
+const ViewPublicProfileUrl = 'profile/nastia'
 
 describe("Dashboard", () => {
     beforeEach(() => {
@@ -14,6 +14,7 @@ describe("Dashboard", () => {
         LoginPage.login({ email: email, password: password });
         DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
     });
+
     it('Should see amount of Posts, Following, Followers, Collections FL-5', () => {
         $$('[class="m-0 amount font-gt"]').forEach(element => {
             expect(parseInt(element.getText())).to.be.a("number");
@@ -32,6 +33,7 @@ describe("Dashboard", () => {
     it('Should be able to view public profile FL-7', () => {
         DashboardPage.$viewPublicProfileBtn.click();
         DashboardPage.switchToOpenTab();
-        expect(browser.getUrl()).to.equal(viewPublicProfileUrl);
+        expect(browser.getUrl()).to.include(ViewPublicProfileUrl);
+        expect(DashboardPage.$landingHeader).to.exist;
     });
 })

@@ -7,6 +7,7 @@ class Dashboard {
     get $collectionsBtn() {return $('[class="item d-flex align-items-end"]');};
     get $noPostsTxt() {return $('span=There are no posts here yet');};
     get $noCollectionsTxt() {return $('span=There are no collections here yet');};
+    get $landingHeader() {return $('[id="landingHeader"]');};
 
     switchToOpenTab(mainTab) {
         browser.waitUntil(() => browser.getWindowHandles().length > 1);
