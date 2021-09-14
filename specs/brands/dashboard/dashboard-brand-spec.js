@@ -42,7 +42,7 @@ describe('Dashboard - Brand', () => {
             dashboardBrandsPage.$upgradeBtn.click();
 
             browser.waitUntil(() => {
-                return dashboardBrandsPage.$$planRowTxt.map((elem) => elem.isDisplayed()).length > 3;
+                return dashboardBrandsPage.$$plansLbl.map((elem) => elem.isDisplayed()).length > 3;
             }, { timeout: 10000, timeoutMsg: '3 elements have not been displayed' });
 
             //Verify all the text in BASIC plan
