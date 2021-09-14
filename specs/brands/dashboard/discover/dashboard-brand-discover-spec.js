@@ -1,8 +1,8 @@
 const LoginPage = require('../../../../page_objects/login-page');
-const dashboardBrandsPage = require('../../../../page_objects/brands/dashboard/dashboard-brands-page');
+const DashboardBrandsPage = require('../../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../../data/Credentials.json");
 const { expect } = require('chai');
-const dashboardBrandDiscover = require('../../../../page_objects/brands/dashboard/discover/dashboard-brand-discover');
+const DashboardBrandDiscover = require('../../../../page_objects/brands/dashboard/discover/Dashboard-brand-discover');
 
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
@@ -13,17 +13,17 @@ describe('Dashboard - Brand', () => {
     });
 
     it.only('FL-70', () => {
-        dashboardBrandsPage.$discoverButton.waitForClickable();
-        dashboardBrandsPage.$discoverButton.click();
-        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
-        dashboardBrandDiscover.$sliderMax.waitForClickable()
-        dashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
-        dashboardBrandDiscover.$applyFiltersBtn.click()
+        DashboardBrandsPage.$discoverButton.waitForClickable();
+        DashboardBrandsPage.$discoverButton.click();
+        DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
+        DashboardBrandDiscover.$sliderMax.waitForClickable()
+        DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
+        DashboardBrandDiscover.$applyFiltersBtn.click()
         browser.waitUntil(() => {
-            return  dashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
+            return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
         }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
         const creatorName = [];
-        dashboardBrandDiscover.$$creatorsData.forEach(element => {
+        DashboardBrandDiscover.$$creatorsData.forEach(element => {
             creatorName.push(element.getText().toLowerCase());
         });
         expect(parseInt(creatorName[1])).to.be.below(25);

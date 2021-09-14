@@ -1,5 +1,5 @@
 const LoginPage = require('../../../page_objects/login-page');
-const dashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
+const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/Dashboard-brands-page');
 const Credentials = require("../../../data/credentials.json");
 
 const email = Credentials.brands.login.email;
@@ -11,26 +11,26 @@ describe('Dashboard - Brand', () => {
     });
 
     it('FL-34', () => {
-        dashboardBrandsPage.$discoverButton.waitForClickable();
-        dashboardBrandsPage.$discoverButton.click();
-        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
+        DashboardBrandsPage.$discoverButton.waitForClickable();
+        DashboardBrandsPage.$discoverButton.click();
+        DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
     });
 
     it('FL-35', () => {
-        dashboardBrandsPage.$campaignsButton.waitForClickable()
-        dashboardBrandsPage.$campaignsButton.click();
-        dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
+        DashboardBrandsPage.$campaignsButton.waitForClickable()
+        DashboardBrandsPage.$campaignsButton.click();
+        DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
     it('FL-68', () => {
-        dashboardBrandsPage.$savedButton.waitForClickable();
-        dashboardBrandsPage.$savedButton.click();
-        dashboardBrandsPage.$createNewListLink.waitForDisplayed();
+        DashboardBrandsPage.$savedButton.waitForClickable();
+        DashboardBrandsPage.$savedButton.click();
+        DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
     it('FL-69', () => {
-        dashboardBrandsPage.$homeButton.waitForClickable();
-        dashboardBrandsPage.$homeButton.click();
-        dashboardBrandsPage.$currentUserName.waitForDisplayed();
+        DashboardBrandsPage.$homeButton.waitForClickable();
+        DashboardBrandsPage.$homeButton.click();
+        DashboardBrandsPage.$currentUserName.waitForDisplayed();
     });
 })
