@@ -1,8 +1,9 @@
 const LoginPage = require('../../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../../data/Credentials.json");
-const { expect } = require('chai');
 const DashboardBrandDiscover = require('../../../../page_objects/brands/dashboard/discover/Dashboard-brand-discover');
+const { expect } = require('chai');
+
 
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
@@ -12,7 +13,7 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it.only('FL-70', () => {
+    it('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
