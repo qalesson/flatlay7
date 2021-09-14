@@ -1,5 +1,5 @@
 const LoginPage = require('../../../page_objects/login-page');
-const dashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
+const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../data/credentials.json");
 const expect = require('chai').expect;
 const Plans = require("../../../data/plans.json");
@@ -13,45 +13,45 @@ describe('Dashboard - Brand', () => {
     });
 
     it('Should get redirected to discover page upon click on discover FL-34', () => {
-        dashboardBrandsPage.$discoverButton.waitForClickable();
-        dashboardBrandsPage.$discoverButton.click();
-        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
+        DashboardBrandsPage.$discoverButton.waitForClickable();
+        DashboardBrandsPage.$discoverButton.click();
+        DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
     });
 
     it('Should get redirected to campaigns page upon click on campaigns FL-35', () => {
-        dashboardBrandsPage.$campaignsButton.waitForClickable()
-        dashboardBrandsPage.$campaignsButton.click();
-        dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
+        DashboardBrandsPage.$campaignsButton.waitForClickable()
+        DashboardBrandsPage.$campaignsButton.click();
+        DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
     it('Should get redirected to saved page upon click on saved FL-**', () => {
-        dashboardBrandsPage.$savedButton.waitForClickable();
-        dashboardBrandsPage.$savedButton.click();
-        dashboardBrandsPage.$createNewListLink.waitForDisplayed();
+        DashboardBrandsPage.$savedButton.waitForClickable();
+        DashboardBrandsPage.$savedButton.click();
+        DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
     it('Should get redirected to home page upon click on home FL-**', () => {
-        dashboardBrandsPage.$homeButton.waitForClickable();
-        dashboardBrandsPage.$homeButton.click();
-        dashboardBrandsPage.$currentUserName.waitForDisplayed();
+        DashboardBrandsPage.$homeButton.waitForClickable();
+        DashboardBrandsPage.$homeButton.click();
+        DashboardBrandsPage.$currentUserName.waitForDisplayed();
     }),
 
 
         it('User should be able to see 4 yearly plans on "Plans" page FL-67', () => {
-            dashboardBrandsPage.$upgradeBtn.waitForDisplayed();
-            dashboardBrandsPage.$upgradeBtn.click();
+            DashboardBrandsPage.$upgradeBtn.waitForDisplayed();
+            DashboardBrandsPage.$upgradeBtn.click();
 
-            dashboardBrandsPage.$yearlyPlansBtn.waitForDisplayed();
-            dashboardBrandsPage.$yearlyPlansBtn.click();
+            DashboardBrandsPage.$yearlyPlansBtn.waitForDisplayed();
+            DashboardBrandsPage.$yearlyPlansBtn.click();
 
             browser.waitUntil(() => {
-                return dashboardBrandsPage.$$plansLbl.map((elem) => elem.isDisplayed()).length > 3;
+                return DashboardBrandsPage.$$plansLbl.map((elem) => elem.isDisplayed()).length > 3;
             }, { timeout: 10000, timeoutMsg: '3 elements have not been displayed' });
 
             //Verify all the text in BASIC plan
             const basic = [];
 
-            dashboardBrandsPage.$$basicEnterprisePlanTxt.forEach(element => {
+            DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
                 basic.push(element.getText())
             })
             expect(basic[0]).to.contain(Plans.Basic.name);
@@ -64,7 +64,7 @@ describe('Dashboard - Brand', () => {
 
             //Verify all the text in PRO plan
             const pro = [];
-            dashboardBrandsPage.$$proPremiumPlanTxt.forEach(element => {
+            DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
                 pro.push(element.getText())
             })
 
@@ -81,7 +81,7 @@ describe('Dashboard - Brand', () => {
 
             //Verify all the text in PREMIUM plan
             const premium = [];
-            dashboardBrandsPage.$$proPremiumPlanTxt.forEach(element => {
+            DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
                 premium.push(element.getText())
             })
 
@@ -97,7 +97,7 @@ describe('Dashboard - Brand', () => {
 
             //Verify all the text in ENTERPRISE plan
             const enterprise = [];
-            dashboardBrandsPage.$$basicEnterprisePlanTxt.forEach(element => {
+            DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
                 enterprise.push(element.getText())
             })
 
