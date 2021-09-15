@@ -17,7 +17,7 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
-        DashboardBrandDiscover.$sliderMax.waitForClickable()
+        DashboardBrandDiscover.$sliderMax.waitForClickable({timeout: 30000});
         DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
         DashboardBrandDiscover.$applyFiltersBtn.click()
         browser.waitUntil(() => {
