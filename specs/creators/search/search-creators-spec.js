@@ -14,6 +14,7 @@ describe("Search", () => {
     DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
   });
 
+  // Skipped product as its not ready for testing yet
   it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
     DashboardPage.$searchBtn.waitForDisplayed();
@@ -45,20 +46,5 @@ describe("Search", () => {
     });
     expect(searchCreators.length).to.equal(4);
     searchFeeds.every((i) => expect(i).to.contain("ball"));
-
-    // Scroll webpage down to Products section
-    SearchPage.$productsLbl.moveTo();
-
-    // Verify that user can see relevant search results in Products section
-    browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsProducts.map((elem) => elem.isDisplayed()).length > 3);
-    }, { timeout: 20000, timeoutMsg: 'No results in Products section!' });
-
-    // Verify that user can see relevant search results in Products section
-    const searchProducts = [];
-    SearchPage.$$searchResultsProducts.forEach((element) => {
-      if (element.getText().length > 0) searchProducts.push(element.getText().toLowerCase());
-    });
-    expect(searchProducts.length).to.equal(2);
   });
 });
