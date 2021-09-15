@@ -13,6 +13,7 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
+<<<<<<< HEAD
     it('Should get redirected to discover page upon click on discover FL-34', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
@@ -27,12 +28,31 @@ describe('Dashboard - Brand', () => {
 
 <<<<<<< HEAD
     it('Should get redirected to saved page upon click on saved FL-68', () => {
+=======
+    it('FL-34', () => {
+        dashboardBrandsPage.$discoverButton.waitForClickable();
+        dashboardBrandsPage.$discoverButton.click();
+        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
+    });
+
+    it('FL-35', () => {
+        dashboardBrandsPage.$campaignsButton.waitForClickable()
+        dashboardBrandsPage.$campaignsButton.click();
+        dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
+    });
+
+    it('FL-68', () => {
+>>>>>>> added
         dashboardBrandsPage.$savedButton.waitForClickable();
         dashboardBrandsPage.$savedButton.click();
         dashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
+<<<<<<< HEAD
     it('Should get redirected to home page upon click on home FL-69', () => {
+=======
+    it('FL-69', () => {
+>>>>>>> added
         dashboardBrandsPage.$homeButton.waitForClickable();
         dashboardBrandsPage.$homeButton.click();
         dashboardBrandsPage.$currentUserName.waitForDisplayed();
