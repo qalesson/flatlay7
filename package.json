@@ -1,11 +1,11 @@
 {
-  "name": "codemify",
+  "name": "flatlay7",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "npx wdio wdio.conf.js"
-  },
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
