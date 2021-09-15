@@ -2,7 +2,7 @@
 class Dashboard {
     // Reusable selector getters that will help us to avoid selector duplicates
     get $accountSettingsLnk() {return $('[routerlink="/creator/settings"]');};
-    get searchBtn() {return $('span=Search');};
+    get $searchBtn() {return $('span=Search');};
     get $viewPublicProfileBtn() {return $('[class="top-main"] div:nth-child(2)');};
     get $collectionsBtn() {return $('[class="item d-flex align-items-end"]');};
     get $noPostsTxt() {return $('span=There are no posts here yet');};
