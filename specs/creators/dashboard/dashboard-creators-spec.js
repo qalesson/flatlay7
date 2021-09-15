@@ -14,9 +14,9 @@ describe("Dashboard", () => {
         LoginPage.login({ email: email, password: password });
         DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
     });
-    
+
     it('Should see amount of Posts, Following, Followers, Collections FL-5', () => {
-        $$('[class="m-0 amount font-gt"]').forEach(element => {
+        DashboardPage.$$numberOfPosts.forEach(element => {
             expect(parseInt(element.getText())).to.be.a("number");
         })
     });
