@@ -1,9 +1,8 @@
 const LoginPage = require("../../../page_objects/login-page");
+const Credentials = require("../../../data/credentials.json");
+const { expect } = require("chai");
 const SearchPage = require("../../../page_objects/creators/search/search-page");
 const DashboardPage = require("../../../page_objects/creators/dashboard/dashboard-creators-page");
-const Credentials = require("../../../data/credentials.json");
-
-const { expect } = require("chai");
 
 const email = Credentials.creators.login.email;
 const password = Credentials.creators.login.password;
@@ -18,7 +17,7 @@ describe("Search", () => {
   it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
     DashboardPage.$searchBtn.waitForDisplayed();
-    DashboardPage.$searchBtn.click();
+    DashboardPage.$searchBtn.click();    
 
     // Type "ball" and press enter
     SearchPage.search("ball");
@@ -61,7 +60,5 @@ describe("Search", () => {
       if (element.getText().length > 0) searchProducts.push(element.getText().toLowerCase());
     });
     expect(searchProducts.length).to.equal(2);
-    searchProducts.every((i) => expect(i).to.contain("ball"));
   });
 });
-
