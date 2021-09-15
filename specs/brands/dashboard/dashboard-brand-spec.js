@@ -27,13 +27,13 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved FL-**', () => {
+    it('Should get redirected to saved page upon click on saved FL-68', () => {
         DashboardBrandsPage.$savedButton.waitForClickable();
         DashboardBrandsPage.$savedButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
-    it('Should get redirected to home page upon click on home FL-**', () => {
+    it('Should get redirected to home page upon click on home FL-69', () => {
         DashboardBrandsPage.$homeButton.waitForClickable();
         DashboardBrandsPage.$homeButton.click();
         DashboardBrandsPage.$currentUserName.waitForDisplayed();
