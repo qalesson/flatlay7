@@ -29,9 +29,7 @@ describe("Search", () => {
     // Wait for search results to display
     browser.waitUntil(() => {
       return (SearchPage.$$searchResultsCreatorsOnly.map((elem) => elem.isDisplayed()).length > 3);
-    },
-    { timeout: 10000, timeoutMsg: "Creators results were not visible" }
-    );
+    }, {timeout: 10000, timeoutMsg: "Creators results were not visible" });
 
     // Verify that user can see relevant search results in Creators section
     const searchCreatorsOnly = [];
