@@ -10,7 +10,6 @@ class DashboardBrand {
     get $createNewListLink () {return $('[class="create-saved-list-button link-item"]');}
     get $accountSettingsLnk() {return $('[routerlink="/creator/settings"]');}
     get $upgradeBtn() {return $('[alt="Upgrade"]');}
-    get $pricingList() {return $('[class="row pricing-plan"]');}
     get $yearlyPlansBtn() {return $('[class="p-2 text-center"]');}
     get $$basicEnterprisePlanLbl() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3 ng-star-inserted"]');}
     get $$proPremiumPlanLbl() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3"]');}
