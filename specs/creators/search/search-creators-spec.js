@@ -17,8 +17,8 @@ describe("Search", () => {
 
   it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
-    DashboardPage.searchBtn.waitForDisplayed();
-    DashboardPage.searchBtn.click();
+    DashboardPage.$searchBtn.waitForDisplayed();
+    DashboardPage.$searchBtn.click();
 
     // Type "ball" and press enter
     SearchPage.search("ball");
@@ -26,14 +26,14 @@ describe("Search", () => {
 
     // Wait for search results to display
     browser.waitUntil(() => {
-      return (SearchPage.$searchResultsCreators.map((elem) => elem.isDisplayed()).length > 3);
+      return (SearchPage.$$searchResultsCreators.map((elem) => elem.isDisplayed()).length > 3);
     },
       { timeout: 20000, timeoutMsg: "Creators results were not visible" }
     );
 
     // Verify that user can see relevant search results in Creators section
     const searchCreators = [];
-    SearchPage.$searchResultsCreators.forEach((element) => {
+    SearchPage.$$searchResultsCreators.forEach((element) => {
       if (element.getText().length > 0) searchCreators.push(element.getText().toLowerCase());
     });
     expect(searchCreators.length).to.equal(4);
@@ -41,7 +41,7 @@ describe("Search", () => {
 
     // Verify that user can see relevant search results in Feeds section  
     const searchFeeds = [];
-    SearchPage.$searchResultsFeeds.forEach((element) => {
+    SearchPage.$$searchResultsFeeds.forEach((element) => {
       if (element.length > 0) searchFeeds.push(element.getText().toLowerCase());
     });
     expect(searchCreators.length).to.equal(4);
@@ -52,15 +52,14 @@ describe("Search", () => {
 
     // Verify that user can see relevant search results in Products section
     browser.waitUntil(() => {
-      return (SearchPage.$searchResultsProducts.map((elem) => elem.isDisplayed()).length > 3);
+      return (SearchPage.$$searchResultsProducts.map((elem) => elem.isDisplayed()).length > 3);
     }, { timeout: 20000, timeoutMsg: 'No results in Products section!' });
 
     // Verify that user can see relevant search results in Products section
     const searchProducts = [];
-    SearchPage.$searchResultsProducts.forEach((element) => {
+    SearchPage.$$searchResultsProducts.forEach((element) => {
       if (element.getText().length > 0) searchProducts.push(element.getText().toLowerCase());
     });
-
     expect(searchProducts.length).to.equal(2);
     searchProducts.every((i) => expect(i).to.contain("ball"));
   });
