@@ -32,17 +32,14 @@ describe("Search", () => {
     browser.waitUntil(() => {
       return (SearchPage.$$searchResultsContentsOnly.map((elem) => elem.isDisplayed()).length > 3);
     },
-    { timeout: 10000, timeoutMsg: "Contents results were not visible" }
-    );
+    {timeout:10000, timeoutMsg:"Contents results were not visible"});
 
     // Verify that user can see relevant search results in Contents section
     const searchContentsOnly = [];
     SearchPage.$$searchResultsContentsOnly.forEach((element) => {
       if(element.getText().length>0) searchContentsOnly.push(element.getText().toLowerCase());
-    });
-    console.log(searchContentsOnly);        
+    });           
     expect(searchContentsOnly.length).to.equal(8);      
     searchContentsOnly.every((i) => expect(i).to.contain("ball"));    
   });
 });
-

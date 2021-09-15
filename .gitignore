@@ -3,3 +3,4 @@ node_modules
 local.conf.js
 package-lock.json
 package.json
+Dockerfile
