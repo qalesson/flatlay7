@@ -19,7 +19,7 @@ describe('Login - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
         DashboardBrandsPage.$profileImage.click();
-        DashboardBrandsPage.$signOutButton.waitForDisplayed ();
+        DashboardBrandsPage.$signOutButton.waitForDisplayed();
         DashboardBrandsPage.$signOutButton.click();
 
     });
@@ -27,7 +27,5 @@ describe('Login - Brand', () => {
     it('should not be able to login with incorrect credentials FL-30', () => {
         LoginPage.login({ email: emailTest, password: passwordTest, portal: 'brands' });
         DashboardBrandsPage.$incorrectUsernameError.waitForDisplayed();
-    
-        });
-
+    });
 })
