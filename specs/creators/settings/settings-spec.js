@@ -24,8 +24,8 @@ describe("Settings", () => {
         let country = 'USA'
         let zip = '90036'
         // Press settings menu button
-        DashboardPage.settingsBtn.waitForDisplayed();
-        DashboardPage.settingsBtn.click();
+        DashboardPage.$settingsBtn.waitForDisplayed();
+        DashboardPage.$settingsBtn.click();
         // Press address book button
         SettingsPage.$addressBookBtn.click();
         // Fill out the form
