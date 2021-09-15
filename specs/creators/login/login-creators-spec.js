@@ -1,5 +1,5 @@
 const LoginPage = require('../../../page_objects/login-page');
-const DashboardPage = require('../../../page_objects/creators/dashboard-creators-page/dashboard-creators-page');
+const DashboardPage = require('../../../page_objects/creators/dashboard/dashboard-creators-page');
 const Credentials = require('../../../data/credentials.json');
 
 const email = Credentials.creators.login.email;
