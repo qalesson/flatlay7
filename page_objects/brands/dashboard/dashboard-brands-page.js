@@ -8,6 +8,9 @@ class DashboardBrand {
     get $discoverCreatorsByLink () {return $('span=Discover creators by');}
     get $campaignsNavigationBar () {return $('[class="d-flex flex-row justify-content-around align-items-center m-3"]');}
     get $createNewListLink () {return $('[class="create-saved-list-button link-item"]');}
+    get $profileImage () {return $('[class="profile-photo"]');}
+    get $incorrectUsernameError () {return $('[role="alertdialog"]');}
+    get $signOutButton () {return $('button=Sign Out');}
     get $accountSettingsLnk() {return $('[routerlink="/creator/settings"]');}
     get $upgradeBtn() {return $('[alt="Upgrade"]');}
     get $pricingListLbl() {return $('[class="row pricing-plan"]');}
