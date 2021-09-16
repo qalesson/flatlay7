@@ -1,8 +1,10 @@
 const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
+
 const Credentials = require("../../../data/credentials.json");
 const Plans = require("../../../data/plan.json");
-const expect = require('chai').expect;
+
+const {expect} = require('chai');
 
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
@@ -13,7 +15,6 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-<<<<<<< HEAD
     it('Should get redirected to discover page upon click on discover FL-34', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
@@ -27,47 +28,17 @@ describe('Dashboard - Brand', () => {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     it('Should get redirected to saved page upon click on saved FL-68', () => {
-=======
-    it('FL-34', () => {
-        dashboardBrandsPage.$discoverButton.waitForClickable();
-        dashboardBrandsPage.$discoverButton.click();
-        dashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
-    });
-
-    it('FL-35', () => {
-        dashboardBrandsPage.$campaignsButton.waitForClickable()
-        dashboardBrandsPage.$campaignsButton.click();
-        dashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
-    });
-
-    it('FL-68', () => {
->>>>>>> added
         dashboardBrandsPage.$savedButton.waitForClickable();
         dashboardBrandsPage.$savedButton.click();
         dashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
-<<<<<<< HEAD
     it('Should get redirected to home page upon click on home FL-69', () => {
-=======
-    it('FL-69', () => {
->>>>>>> added
         dashboardBrandsPage.$homeButton.waitForClickable();
         dashboardBrandsPage.$homeButton.click();
         dashboardBrandsPage.$currentUserName.waitForDisplayed();
-=======
-    it('Should get redirected to saved page upon click on saved FL-**', () => {
-        DashboardBrandsPage.$savedButton.waitForClickable();
-        DashboardBrandsPage.$savedButton.click();
-        DashboardBrandsPage.$createNewListLink.waitForDisplayed();
-    });
-
-    it('Should get redirected to home page upon click on home FL-**', () => {
-        DashboardBrandsPage.$homeButton.waitForClickable();
-        DashboardBrandsPage.$homeButton.click();
-        DashboardBrandsPage.$currentUserName.waitForDisplayed();
->>>>>>> b0babc4008687791b30ea3fb0137cf32242a1511
     });
 
     it('User should be able to see 4 monthly plans on "Plans" page FL-66', () => {
