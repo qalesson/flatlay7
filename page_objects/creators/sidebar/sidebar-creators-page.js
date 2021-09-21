@@ -4,7 +4,5 @@ class SideBar {
     get $$creatorsFollowersLbl() {return $$('[_ngcontent-serverapp-c9].status');}
     get $$communitiesFollowBtn() {return $$('button[_ngcontent-serverapp-c10]');}
     get $$communitiesNamesLbl() {return $$('[_ngcontent-serverapp-c10].name');}
-
-    
 }
 module.exports = new SideBar();
