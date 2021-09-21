@@ -22,12 +22,14 @@ describe('Registration - Creators', () => {
         assert.isTrue($('mat-error=Password is required').isExisting(),'New pop up message was not displayed');
     })
 
-    it('user should not be able to register with already existing email FL-65', () => {
+    it.only('user should not be able to register with already existing email FL-65', () => {
         const email = 'victor.petrosyan.1994@gmail.com'
         const username = 'victor.petrosyan.1994@gmail.com'
         const password = 'vitek1994'
         browser.url('https://new.flatlay.io/register');
         registrationPage.login({ email: email, password: password,username:username });
-        assert.isTrue($('mat-error=Email is already registered').isExisting(),'New pop up message was not displayed');
+        browser.waitUntil(() => {
+            return $('mat-error=Email is already registered').getText() === 'Email is already registered'
+        }, { timeout: 10000, timeoutMsg:'"New error pop up message was not displayed"'});
     })
 })
