@@ -1,7 +1,7 @@
-const LoginPage = require("../../../../page_objects/login-page");
-const DashboardBrandsPage = require("../../../../page_objects/brands/dashboard/dashboard-brands-page");
-const Credentials = require("../../../../data/credentials.json");
-const CampaignsPage = require("../../../../page_objects/brands/dashboard/campaign/campaigns-page");
+const LoginPage = require("../../../page_objects/login-page");
+const DashboardBrandsPage = require("../../../page_objects/brands/dashboard/dashboard-brands-page");
+const Credentials = require("../../../data/credentials.json");
+const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
 const { expect } = require("chai");
 
     const email = Credentials.brands.login.email;
