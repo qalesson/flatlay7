@@ -7,8 +7,7 @@ const { expect } = require("chai");
     const email = Credentials.brands.login.email;
     const password = Credentials.brands.login.password;
 
-describe("Dashboard - Brand", () => {
-  
+describe("Dashboard - Brand", () => {  
     beforeEach(function () {
       LoginPage.login({ email: email, password: password, portal: "brands" });
     });
