@@ -27,8 +27,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('Should get redirected to saved page upon click on saved FL-68', () => {
         dashboardBrandsPage.$savedButton.waitForClickable();
         dashboardBrandsPage.$savedButton.click();
