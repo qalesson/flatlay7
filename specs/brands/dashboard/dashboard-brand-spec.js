@@ -27,18 +27,16 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('Should get redirected to saved page upon click on saved FL-68', () => {
-        dashboardBrandsPage.$savedButton.waitForClickable();
-        dashboardBrandsPage.$savedButton.click();
-        dashboardBrandsPage.$createNewListLink.waitForDisplayed();
+        DashboardBrandsPage.$savedButton.waitForClickable();
+        DashboardBrandsPage.$savedButton.click();
+        DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
     it('Should get redirected to home page upon click on home FL-69', () => {
-        dashboardBrandsPage.$homeButton.waitForClickable();
-        dashboardBrandsPage.$homeButton.click();
-        dashboardBrandsPage.$currentUserName.waitForDisplayed();
+        DashboardBrandsPage.$homeButton.waitForClickable();
+        DashboardBrandsPage.$homeButton.click();
+        DashboardBrandsPage.$currentUserName.waitForDisplayed();
     });
 
     it('User should be able to see 4 monthly plans on "Plans" page FL-66', () => {
