@@ -10,6 +10,7 @@ class Dashboard {
     get $noCollectionsTxt() { return $('span=There are no collections here yet'); };
     get $landingHeader() { return $('[id="landingHeader"]'); };
     get $$numberOfPosts() { return $$('[class="m-0 amount font-gt"]'); };
+    get $profilePictureBtn() { return $('[class="user-img-wrap"]'); };
 
     switchToOpenTab(mainTab) {
         browser.waitUntil(() => browser.getWindowHandles().length > 1);

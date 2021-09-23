@@ -2,7 +2,7 @@ const LoginPage = require('../../../page_objects/login-page');
 const DashboardPage = require('../../../page_objects/creators/dashboard/dashboard-creators-page');
 const Credentials = require("../../../data/credentials.json");
 
-const { expect } = require("chai");
+const { expect, assert } = require("chai");
 
 const email = Credentials.creators.dashboard.email;
 const password = Credentials.creators.dashboard.password;
@@ -36,4 +36,12 @@ describe("Dashboard", () => {
         expect(browser.getUrl()).to.include(ViewPublicProfileUrl);
         expect(DashboardPage.$landingHeader).to.exist;
     });
+
+    it('Should take to profile upon click on profile icon on the left side over menu items FL-8', () => {
+        DashboardPage.$searchBtn.waitForDisplayed();
+        DashboardPage.$searchBtn.click();
+        DashboardPage.$profilePictureBtn.waitForDisplayed();
+        DashboardPage.$profilePictureBtn.click();
+        expect(DashboardPage.$viewPublicProfileBtn).to.exist;
+    });   
 })
