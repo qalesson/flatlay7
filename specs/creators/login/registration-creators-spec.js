@@ -7,7 +7,7 @@ const password = Credentials.creatorRegistrationTest.login.password;
 describe('Registration - Creators', () => {
     it('should not be able to register with no username FL-73', () => {
         browser.url('https://new.flatlay.io/register');
-        RegistrationPage.login({ email: email, password: password });
-        RegistrationPage.$UsernameRequiredError.waitForDisplayed ();
+        RegistrationPage.registration({ email: email, password: password });
+        RegistrationPage.$usernameRequiredError.waitForDisplayed();
     })
 })

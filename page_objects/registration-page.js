@@ -10,10 +10,10 @@ class Registration {
     get $brandsLnk() { return $('[class="btn"] [class="d-none d-md-inline mr-1"]'); }
     get $iframe () { return $('[data-testid="dialog_iframe"]'); }
     get $fBPopupCloseLnk () { return $('[aria-label="close"]'); }
-    get $UsernameRequiredError () { return $('mat-error=Username is required'); }
+    get $usernameRequiredError () { return $('mat-error=Username is required'); }
 
     // Helper method to avoid code duplication
-    login({ email, password, portal, url = 'login' }) {
+    registration({ email, password, portal, url = 'login' }) {
         // Navigate to specific url. You will be redirected after login
         // browser.url('./' + url);
         // Login as brand
