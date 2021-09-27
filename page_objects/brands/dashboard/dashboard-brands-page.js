@@ -9,6 +9,7 @@ class DashboardBrand {
     get $campaignsNavigationBar () {return $('[class="d-flex flex-row justify-content-around align-items-center m-3"]');}
     get $createNewListLink () {return $('[class="create-saved-list-button link-item"]');}
     get $createCampaignButton () {return $("span=Create Campaign");}
+    get $MainMenuCampaignsLink () {return $("a=Campaigns");}
     get $profileImage () {return $('[class="profile-photo"]');}
     get $incorrectUsernameError () {return $('[role="alertdialog"]');}
     get $signOutButton () {return $('button=Sign Out');}

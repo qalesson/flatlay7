@@ -20,6 +20,7 @@ class CreateCampaingBrand {
     get $lastCreateCampaignSectionTitle() { return $("strong=Congrats! Your campaign is created!");}
     get $goToMyCampaignButton() { return $("button=Go to my campaign");}
     get $saveCampaignButton() { return $("button=Save");}
+    get $closeIcon() { return $('[class="link-item float-right mt-3 mr-3"]');}
     waitAndClickOnNextStepButton = () => {
     this.$nextStepButton.waitForClickable({ timeout: 5000 });
     this.$nextStepButton.click();

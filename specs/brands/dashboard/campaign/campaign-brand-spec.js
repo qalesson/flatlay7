@@ -5,12 +5,14 @@ const CreateCampaignPage = require("../../../../page_objects/brands/dashboard/ca
 const CampaignsPage = require("../../../../page_objects/brands/dashboard/campaign/campaigns-page")
 
 const assert = require("chai").assert;
+const expect = require("chai").expect;
 const faker = require("faker")
 
 describe("Dashboard - Brand", () => {
   const email = Credentials.brands.login.email;
   const password = Credentials.brands.login.password;
   const campaignName = `Test Campaign ${faker.random.word()} for Test Case FL-32 (demo)`
+  const editedCampaignName = `Test Campaign ${faker.random.word()} for Test Case FL-32 EDITED (demo)`;
   const campaignDirextionTxt = `Test Campaign direction ${faker.random.words()} for Test Case FL-32 (demo)`
   const campaignBriefTxt = "Test Campaign brief text for Test Case FL-32";
   const campaignProductToPromoteLink = "https://webdriver.io/";
@@ -106,5 +108,23 @@ describe("Dashboard - Brand", () => {
     CreateCampaignPage.$$inputForCampaignStartDate.click();
     const dayBefore = (CreateCampaignPage.$datePickerToday.getText() - 1) ;
     assert.equal( $(`div=${dayBefore}`).isClickable(), false, "date of the previous day is not clickable");
+  });
+
+  it("Should be able to edit campaign FL-45", () => {
+    DashboardBrandsPage.$MainMenuCampaignsLink.waitForClickable()
+    DashboardBrandsPage.$MainMenuCampaignsLink.click()
+    CampaignsPage.$sideCampaignListCampaignName.click()
+    CampaignsPage.$threeDotsIcon.click();
+    CampaignsPage.$CampaignEditButton.click();
+    CreateCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
+    CreateCampaignPage.$inputForCampaignName.waitForClickable();
+    CreateCampaignPage.$inputForCampaignName.setValue(editedCampaignName);
+    CreateCampaignPage.waitAndClickOnNextStepButton();
+    CreateCampaignPage.$saveCampaignButton.click();
+    CreateCampaignPage.$closeIcon.click();
+    CampaignsPage.$sideCampaignListCampaignName.waitForDisplayed();
+    CampaignsPage.$sideCampaignListCampaignName.click();
+    const actualEditedCampaignName = CampaignsPage.$sideCampaignListCampaignName.getText();
+    expect(actualEditedCampaignName).to.contain("EDITED");
   });
 });
