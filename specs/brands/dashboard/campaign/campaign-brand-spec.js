@@ -19,10 +19,9 @@ describe("Dashboard - Brand", () => {
 
   beforeEach(function () {
     LoginPage.login({ email: email, password: password, portal: "brands" });
-    browser.url('https://new.flatlay.io/brand/home')
   });
  
-  it.only("Should be able to create campaign FL-32", () => {
+  it("Should be able to create campaign FL-32", () => {
     browser.waitUntil(() => {
       return DashboardBrandsPage.$createCampaignButton.isDisplayed();
     }, { timeout: 10000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
