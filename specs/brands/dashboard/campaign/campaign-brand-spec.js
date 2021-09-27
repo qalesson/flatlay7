@@ -5,12 +5,13 @@ const CreateCampaignPage = require("../../../../page_objects/brands/dashboard/ca
 const CampaignsPage = require("../../../../page_objects/brands/dashboard/campaign/campaigns-page")
 
 const assert = require("chai").assert;
+const faker = require("faker")
 
 describe("Dashboard - Brand", () => {
   const email = Credentials.brands.login.email;
   const password = Credentials.brands.login.password;
-  const campaignName = "Test Campaign Name for Test Case FL-32"
-  const campaignDirextionTxt = "Test Campaign direction text for Test Case FL-32"
+  const campaignName = `Test Campaign ${faker.random.word()} for Test Case FL-32 (demo)`
+  const campaignDirextionTxt = `Test Campaign direction ${faker.random.words()} for Test Case FL-32 (demo)`
   const campaignBriefTxt = "Test Campaign brief text for Test Case FL-32";
   const campaignProductToPromoteLink = "https://webdriver.io/";
   const date = new Date()
@@ -18,12 +19,13 @@ describe("Dashboard - Brand", () => {
 
   beforeEach(function () {
     LoginPage.login({ email: email, password: password, portal: "brands" });
+    browser.url('https://new.flatlay.io/brand/home')
   });
  
-  it("Should be able to create campaign FL-32", () => {
-    DashboardBrandsPage.$createCampaignButton.waitForClickable({
-      timeout: 10000,
-    });
+  it.only("Should be able to create campaign FL-32", () => {
+    browser.waitUntil(() => {
+      return DashboardBrandsPage.$createCampaignButton.isDisplayed();
+    }, { timeout: 10000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
     DashboardBrandsPage.$createCampaignButton.click();
     //Creating Campaign step 1/9
     CreateCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
@@ -78,6 +80,7 @@ describe("Dashboard - Brand", () => {
     //Creating Campaign step 9/9
     CreateCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
     CreateCampaignPage.$lastCreateCampaignSectionTitle.waitForDisplayed();
+    CreateCampaignPage.$saveCampaignButton.click();
     CreateCampaignPage.$goToMyCampaignButton.waitForClickable();
     CreateCampaignPage.$goToMyCampaignButton.click();
     //verifying that campaign with given campaign name (const campaignName) was created

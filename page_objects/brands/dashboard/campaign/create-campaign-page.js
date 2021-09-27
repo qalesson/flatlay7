@@ -19,6 +19,7 @@ class CreateCampaingBrand {
     get $flatlayTermsSectionTitle() { return $("strong=We're almost there");}
     get $lastCreateCampaignSectionTitle() { return $("strong=Congrats! Your campaign is created!");}
     get $goToMyCampaignButton() { return $("button=Go to my campaign");}
+    get $saveCampaignButton() { return $("button=Save");}
     waitAndClickOnNextStepButton = () => {
     this.$nextStepButton.waitForClickable({ timeout: 5000 });
     this.$nextStepButton.click();
