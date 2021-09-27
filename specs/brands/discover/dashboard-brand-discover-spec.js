@@ -1,7 +1,7 @@
-const LoginPage = require('../../../../page_objects/login-page');
-const DashboardBrandsPage = require('../../../../page_objects/brands/dashboard/dashboard-brands-page');
-const Credentials = require("../../../../data/Credentials.json");
-const DashboardBrandDiscover = require('../../../../page_objects/brands/dashboard/discover/Dashboard-brand-discover');
+const LoginPage = require('../../../page_objects/login-page');
+const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
+const Credentials = require("../../../data/Credentials.json");
+const DashboardBrandDiscover = require('../../../page_objects/brands/dashboard/discover/Dashboard-brand-discover');
 const { expect } = require('chai');
 
 
