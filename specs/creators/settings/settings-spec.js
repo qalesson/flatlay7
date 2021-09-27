@@ -2,7 +2,7 @@ const LoginPage = require("../../../page_objects/login-page");
 const DashboardPage = require("../../../page_objects/creators/dashboard/dashboard-creators-page");
 const SettingsPage = require("../../../page_objects/creators/settings/settings-page");
 
-const Credentials = require("../../../data/credentials.json");
+const Credentials = require("../../../data/Credentials.json");
 const { expect } = require("chai");
 
 const email = Credentials.creatorSettingsUser.login.email;
