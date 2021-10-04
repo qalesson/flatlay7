@@ -8,12 +8,12 @@ const { expect } = require('chai');
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
-describe('Dashboard - Brand', () => {
+describe.skip('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it.skip('Brand can filter creators by followers count FL-70', () => {
+    it('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
