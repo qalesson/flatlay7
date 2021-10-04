@@ -1,6 +1,6 @@
 const LoginPage = require("../../../page_objects/login-page");
 const DashboardBrandsPage = require("../../../page_objects/brands/dashboard/dashboard-brands-page");
-const Credentials = require("../../../data/credentials.json");
+const Credentials = require("../../../data/Credentials.json");
 const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
 const { expect } = require("chai");
 
