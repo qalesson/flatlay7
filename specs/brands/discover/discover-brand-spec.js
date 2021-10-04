@@ -2,8 +2,8 @@ const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../data/Credentials.json");
 const DashboardBrandDiscover = require('../../../page_objects/brands/discover/dashboard-brand-discover');
-const { expect } = require('chai');
 
+const { expect } = require('chai');
 
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
