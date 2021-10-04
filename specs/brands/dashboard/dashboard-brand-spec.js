@@ -40,6 +40,7 @@ describe('Dashboard - Brand', () => {
     });
 
     it('User should be able to see 4 monthly plans on "Plans" page FL-66', () => {
+        browser.pause(2000);
         DashboardBrandsPage.$upgradeBtn.waitForClickable();
         DashboardBrandsPage.$upgradeBtn.click();
 
@@ -51,9 +52,7 @@ describe('Dashboard - Brand', () => {
         const basic = [];
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             basic.push(element.getText())
-
         })
-
         expect(basic[0]).to.contain(Plans.Basic.name);
         expect(basic[0]).to.contain(Plans.Basic.body.monthlyPrice);
         expect(basic[0]).to.contain(Plans.Basic.body.description1);
@@ -67,7 +66,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             pro.push(element.getText())
         })
-
         expect(pro[0]).to.contain(Plans.Pro.name);
         expect(pro[0]).to.contain(Plans.Pro.body.monthlyPrice);
         expect(pro[0]).to.contain(Plans.Pro.body.description1);
@@ -84,7 +82,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             premium.push(element.getText())
         })
-
         expect(premium[1]).to.contain(Plans.Premium.name);
         expect(premium[1]).to.contain(Plans.Premium.body.monthlyPrice);
         expect(premium[1]).to.contain(Plans.Premium.body.description1);
@@ -100,7 +97,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             enterprise.push(element.getText())
         });
-
         expect(enterprise[1]).to.contain(Plans.Enterprise.name);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description1);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description2);
@@ -112,6 +108,7 @@ describe('Dashboard - Brand', () => {
     });
 
     it('User should be able to see 4 yearly plans on "Plans" page FL-67', () => {
+        browser.pause(2000);
         DashboardBrandsPage.$upgradeBtn.waitForClickable();
         DashboardBrandsPage.$upgradeBtn.click();
 
@@ -140,7 +137,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             pro.push(element.getText())
         })
-
         expect(pro[0]).to.contain(Plans.Pro.name);
         expect(pro[0]).to.contain(Plans.Pro.body.annualPrice);
         expect(pro[0]).to.contain(Plans.Pro.body.description1);
@@ -157,7 +153,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             premium.push(element.getText())
         })
-
         expect(premium[1]).to.contain(Plans.Premium.name);
         expect(premium[1]).to.contain(Plans.Premium.body.annualPrice);
         expect(premium[1]).to.contain(Plans.Premium.body.description1);
@@ -173,7 +168,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             enterprise.push(element.getText())
         })
-
         expect(enterprise[1]).to.contain(Plans.Enterprise.name);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description1);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description2);
