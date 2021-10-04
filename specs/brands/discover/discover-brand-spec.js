@@ -11,7 +11,7 @@ const password = Credentials.brands.login.password;
 describe.skip('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
-    });
+    }); 
 
     it('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
