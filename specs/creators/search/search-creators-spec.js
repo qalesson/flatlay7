@@ -15,7 +15,7 @@ describe("Search - ", () => {
   });
 
   // Search logic is broken. Skipping until fix is in place
-  it.skip("FL-9 Should be able to search in ALL sections", () => {
+  it("FL-9 Should be able to search in ALL sections", () => {
     // Press search menu button
     DashboardPage.$searchBtn.waitForDisplayed();
     DashboardPage.$searchBtn.click();
@@ -60,7 +60,7 @@ describe("Search - ", () => {
   });
 
   // Search logic is broken. Skipping until fix is in place
-  it.skip("FL-11 Search Creators only", () => {
+  it("FL-11 Search Creators only", () => {
     // Press Creators section button
     SearchPage.$searchCreatorsOnly.waitForDisplayed();
     SearchPage.$searchCreatorsOnly.click();
@@ -83,10 +83,11 @@ describe("Search - ", () => {
   });
 
   // Search logic is broken. Skipping until fix is in place
-  it.skip("FL-12 Search Contents only", () => {
+  it("FL-12 Search Contents only", () => {
     // Press Contents section button
     SearchPage.$searchContentsOnly.waitForDisplayed();
     SearchPage.$searchContentsOnly.click();
+    //hmmm
 
     // Type "ball" and press enter
     SearchPage.search("ball");
