@@ -27,7 +27,7 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved FL-68', () => {
+    it.skip('Should get redirected to saved page upon click on saved FL-68', () => {        
         DashboardBrandsPage.$savedButton.waitForClickable();
         DashboardBrandsPage.$savedButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();

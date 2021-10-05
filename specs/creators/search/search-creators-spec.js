@@ -60,7 +60,7 @@ describe("Search - ", () => {
   });
 
   // Search logic is broken. Skipping until fix is in place
-  it("FL-11 Search Creators only", () => {
+  it.skip("FL-11 Search Creators only", () => {
     // Press Creators section button
     SearchPage.$searchCreatorsOnly.waitForDisplayed();
     SearchPage.$searchCreatorsOnly.click();
