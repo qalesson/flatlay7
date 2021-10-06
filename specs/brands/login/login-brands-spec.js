@@ -9,13 +9,13 @@ const emailTest = 'test@gmail.com';
 const passwordTest = 'password';
 
 describe('Login - Brand', () => {
-    it('should be able to login with matching credentials FL-28', () => {
+    it.skip('should be able to login with matching credentials FL-28', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
 
     });
 
-    it('should be able to sign out FL-29', () => {
+    it.skip('should be able to sign out FL-29', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
         DashboardBrandsPage.$profileImage.click();
