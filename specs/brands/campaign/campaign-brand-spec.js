@@ -1,6 +1,6 @@
 const LoginPage = require("../../../page_objects/login-page");
 const DashboardBrandsPage = require("../../../page_objects/brands/dashboard/dashboard-brands-page");
-const Credentials = require("../../../data/Credentials.json");
+const Credentials = require("../../../data/credentials.json");
 const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
 const { expect } = require("chai");
 
@@ -12,7 +12,7 @@ describe("Dashboard - Brand", () => {
       LoginPage.login({ email: email, password: password, portal: "brands" });
     });
 
-    it("FL-61 Should not be able to change start day of the published campaign", () => {
+    it.skip("FL-61 Should not be able to change start day of the published campaign", () => {
         // Click Campaigns menu btn
        DashboardBrandsPage.$campaignsButton.waitForDisplayed();
        DashboardBrandsPage.$campaignsButton.click();

@@ -1,7 +1,7 @@
 const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 
-const Credentials = require("../../../data/Credentials.json");
+const Credentials = require("../../../data/credentials.json");
 const Plans = require("../../../data/plan.json");
 
 const {expect} = require('chai');
@@ -27,7 +27,7 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved FL-68', () => {
+    it.skip('Should get redirected to saved page upon click on saved FL-68', () => {
         DashboardBrandsPage.$savedButton.waitForClickable();
         DashboardBrandsPage.$savedButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();
