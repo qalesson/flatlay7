@@ -103,7 +103,7 @@ describe("Search - ", () => {
     const searchContentsOnly = [];
     SearchPage.$$searchResultsContents.forEach((element) => {
       if (element.getText().length > 0) searchContentsOnly.push(element.getText().toLowerCase());
-    });
-    searchContentsOnly.every((i) => expect(i).to.contain("ball"));
+    });   
+    searchContentsOnly.every((i) => expect(i).to.contain("ball"));  
   });
 });

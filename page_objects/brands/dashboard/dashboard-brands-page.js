@@ -11,6 +11,8 @@ class DashboardBrand {
     get $createCampaignButton () {return $("span=Create Campaign");}
     get $MainMenuCampaignsLink () {return $("a=Campaigns");}
     get $profileImage () {return $('[class="profile-photo"]');}
+    get $settignsFromImageBtn () {return $('button=Settings');}
+    get $changePlanBtn () {return $('[class="link-items link-item"]');}
     get $incorrectUsernameError () {return $('[role="alertdialog"]');}
     get $signOutButton () {return $('button=Sign Out');}
     get $accountSettingsLnk() {return $('[routerlink="/creator/settings"]');}
@@ -19,5 +21,17 @@ class DashboardBrand {
     get $$basicEnterprisePlanLbl() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3 ng-star-inserted"]');}
     get $$proPremiumPlanLbl() {return $$('[class="col-sm-6 col-xs-12 p-2 col-md-3"]');}
     get $$plansLbl() {return $$('.col-sm-6.col-xs-12');}
+
+    changePlanPage () {
+        // Click on Profile image
+        this.$profileImage.waitForClickable();
+        this.$profileImage.click();
+        // Click on Settings button
+        this.$settignsFromImageBtn.waitForDisplayed();
+        this.$settignsFromImageBtn.click();
+        // Click on Change Plan button
+        this.$changePlanBtn.waitForDisplayed();
+        this.$changePlanBtn.click();
+    }
 }
 module.exports = new DashboardBrand();
