@@ -1,6 +1,6 @@
 const LoginPage = require('../../../../page_objects/login-page');
 const DashboardCreatorsCampaigns = require('../../../../page_objects/creators/campaigns/dashboard-campaigns-creators-page');
-const Credentials = require('../../../../data/credentials.json');
+const Credentials = require('../../../../data/Credentials.json');
 
 
 const email = Credentials.creators.login.email;
