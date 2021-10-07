@@ -28,8 +28,8 @@ describe('Dashboard - Brand', () => {
     });
 
     it('Should get redirected to saved page upon click on saved FL-68', () => {
-        DashboardBrandsPage.$savedButton.waitForClickable();
-        DashboardBrandsPage.$savedButton.click();
+        DashboardBrandsPage.$listButton.waitForClickable();
+        DashboardBrandsPage.$listButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
