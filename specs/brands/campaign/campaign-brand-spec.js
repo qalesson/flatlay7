@@ -25,7 +25,7 @@ describe("Dashboard - Brand", () => {
        CampaignsPage.$editCampaignDateBtn.waitForDisplayed();
        CampaignsPage.$editCampaignDateBtn.click();       
 
-       // Verify that user is not able to change a start day
+       // Verify that user is not able to change a start  day
        CampaignsPage.$publishedCampaignStartCalendar.waitForDisplayed();
        expect(CampaignsPage.$publishedCampaignStartCalendar.isClickable()).to.be.false;
       });
