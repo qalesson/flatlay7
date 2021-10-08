@@ -12,7 +12,7 @@ describe("Dashboard - Brand", () => {
       LoginPage.login({ email: email, password: password, portal: "brands" });
     });
 
-    it.skip("FL-61 Should not be able to change start day of the published campaign", () => {
+    it("FL-61 Should not be able to change start day of the published campaign", () => {
         // Click Campaigns menu btn
        DashboardBrandsPage.$campaignsButton.waitForDisplayed();
        DashboardBrandsPage.$campaignsButton.click();
