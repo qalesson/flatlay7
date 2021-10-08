@@ -11,7 +11,11 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
 
-  it("FL-61 Should be able to change start and end day of the draft campaign", () => {
+  it("FL-61 Should be able to change start and end day of the draft campaign", () => {    
+    // Choose the draft campaign
+    CampaignsPage.$draftCampaignBtn.waitForDisplayed();
+    CampaignsPage.$draftCampaignBtn.click();
+
     // Click on Edit campaign under the "Days left" section
     CampaignsPage.$editCampaignDateBtn.waitForDisplayed();
     CampaignsPage.$editCampaignDateBtn.click();
