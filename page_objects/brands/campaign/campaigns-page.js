@@ -10,8 +10,7 @@ class CampaignsBrand {
   get $currentDateBtn () {return $('.mat-calendar-body-today');}
   get $tomorrowDateBtn () {return $('//*[@class="mat-calendar-body-cell-content mat-calendar-body-today"]/../following-sibling::td');}
   get $saveDateBtn () {return $('.btn-save');}
-  get $saveDateMsg () {return $('[role="alertdialog"]');}
-  //span[contains(text(),'Draft')]/../preceding-sibling::li
+  get $saveDateMsg () {return $('[role="alertdialog"]');} 
 
   selectCurrentDate() {
     this.$chooseDateBtn.waitForDisplayed();
