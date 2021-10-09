@@ -23,7 +23,7 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
  
-  it("FL-32 Should be able to create campaign", () => {
+  it.skip("FL-32 Should be able to create campaign", () => {
     browser.waitUntil(() => {
       return DashboardBrandsPage.$createCampaignButton.isDisplayed();
     }, { timeout: 10000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
@@ -96,7 +96,7 @@ describe("Dashboard - Brand", () => {
     );
   });
 
-  it.skip("FL-33 Should not be able to create campaign with past date ", () => {
+  it("FL-33 Should not be able to create campaign with past date ", () => {
     DashboardBrandsPage.$createCampaignButton.waitForClickable({
       timeout: 10000,
     });
