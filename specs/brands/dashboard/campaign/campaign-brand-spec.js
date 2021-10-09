@@ -96,7 +96,7 @@ describe("Dashboard - Brand", () => {
     );
   });
 
-  it("FL-33 Should not be able to create campaign with past date ", () => {
+  it.skip("FL-33 Should not be able to create campaign with past date ", () => {
     DashboardBrandsPage.$createCampaignButton.waitForClickable({
       timeout: 10000,
     });
