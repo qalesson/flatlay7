@@ -1,6 +1,6 @@
 const LoginPage = require("../../../../page_objects/login-page");
 const DashboardBrandsPage = require("../../../../page_objects/brands/dashboard/dashboard-brands-page");
-const Credentials = require("../../../../data/credentials.json");
+const Credentials = require("../../../../data/Credentials.json");
 const CreateCampaignPage = require("../../../../page_objects/brands/dashboard/campaign/create-campaign-page")
 const CampaignsPage = require("../../../../page_objects/brands/dashboard/campaign/campaigns-page")
 
@@ -23,7 +23,7 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
  
-  it("Should be able to create campaign FL-32", () => {
+  it("FL-32 Should be able to create campaign", () => {
     browser.waitUntil(() => {
       return DashboardBrandsPage.$createCampaignButton.isDisplayed();
     }, { timeout: 10000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
@@ -96,7 +96,7 @@ describe("Dashboard - Brand", () => {
     );
   });
 
-  it("Should not be able to create campaign with past date FL-33", () => {
+  it.skip("FL-33 Should not be able to create campaign with past date ", () => {
     DashboardBrandsPage.$createCampaignButton.waitForClickable({
       timeout: 10000,
     });
@@ -106,14 +106,18 @@ describe("Dashboard - Brand", () => {
     CreateCampaignPage.$inputForCampaignName.waitForClickable();
     CreateCampaignPage.$inputForCampaignName.setValue(campaignName);
     CreateCampaignPage.$$inputForCampaignStartDate.click();
-    const dayBefore = (CreateCampaignPage.$datePickerToday.getText() - 1) ;
-    assert.equal( $(`div=${dayBefore}`).isClickable(), false, "date of the previous day is not clickable");
+    const dayBefore = CreateCampaignPage.$datePickerToday.getText() - 1;
+    assert.equal(
+      $(`div=${dayBefore}`).isClickable(),
+      false,
+      "date of the previous day is not clickable"
+    );
   });
 
-  it("Should be able to edit campaign FL-45", () => {
-    DashboardBrandsPage.$MainMenuCampaignsLink.waitForClickable()
-    DashboardBrandsPage.$MainMenuCampaignsLink.click()
-    CampaignsPage.$sideCampaignListCampaignName.click()
+  it("FL-45 Should be able to edit campaign", () => {
+    DashboardBrandsPage.$MainMenuCampaignsLink.waitForClickable();
+    DashboardBrandsPage.$MainMenuCampaignsLink.click();
+    CampaignsPage.$sideCampaignListCampaignName.click();
     CampaignsPage.$threeDotsIcon.click();
     CampaignsPage.$CampaignEditButton.click();
     CreateCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
@@ -124,7 +128,8 @@ describe("Dashboard - Brand", () => {
     CreateCampaignPage.$closeIcon.click();
     CampaignsPage.$sideCampaignListCampaignName.waitForDisplayed();
     CampaignsPage.$sideCampaignListCampaignName.click();
-    const actualEditedCampaignName = CampaignsPage.$sideCampaignListCampaignName.getText();
+    const actualEditedCampaignName =
+      CampaignsPage.$sideCampaignListCampaignName.getText();
     expect(actualEditedCampaignName).to.contain("EDITED");
   });
 });

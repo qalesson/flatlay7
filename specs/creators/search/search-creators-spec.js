@@ -7,7 +7,7 @@ const DashboardPage = require("../../../page_objects/creators/dashboard/dashboar
 const email = Credentials.creators.login.email;
 const password = Credentials.creators.login.password;
 
-describe("Search - ", () => {
+describe("Search ", () => {
   beforeEach(() => {
     // Go to login page and login as a Creator
     LoginPage.login({ email: email, password: password });
