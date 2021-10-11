@@ -3,7 +3,7 @@ class DashboardBrand {
     get $homeButton () {return $('[routerlink="/brand/home"]');}
     get $discoverButton () {return $('[routerlink="/brand/discover"]');}
     get $campaignsButton () {return $('a=Campaigns');}
-    get $savedButton () {return $('[routerlink="/brand/saved"]');}
+    get $listButton () {return $('[routerlink="/brand/list"]');}
     get $currentUserName () {return $('[class="current-user-name"]');}
     get $discoverCreatorsByLink () {return $('span=Discover creators by');}
     get $campaignsNavigationBar () {return $('[class="d-flex flex-row justify-content-around align-items-center m-3"]');}
