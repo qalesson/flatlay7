@@ -4,7 +4,8 @@ const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dash
 const Credentials = require("../../../data/Credentials.json");
 const Plans = require("../../../data/plan.json");
 
-const {expect} = require('chai');
+const { expect } = require('chai');
+const dashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
@@ -172,4 +173,12 @@ describe('Dashboard - Brand', () => {
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description5);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description6);
     });
+    it.only('connect lol', () => {
+        $('[class="profile-photo"]').click()
+        $('button=Settings').click()
+        DashboardBrandsPage.clickConnectButtonbyName('Facebook').click()
+    });
 });
+    
+
+
