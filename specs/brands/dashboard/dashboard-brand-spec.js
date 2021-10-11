@@ -173,12 +173,5 @@ describe('Dashboard - Brand', () => {
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description5);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description6);
     });
-    it.only('connect lol', () => {
-        $('[class="profile-photo"]').click()
-        $('button=Settings').click()
-        DashboardBrandsPage.clickConnectButtonbyName('Facebook').click()
-    });
 });
-    
-
 
