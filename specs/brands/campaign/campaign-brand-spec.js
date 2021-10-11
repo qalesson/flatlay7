@@ -3,8 +3,8 @@ const Credentials = require("../../../data/Credentials.json");
 const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
 const { expect } = require("chai");
 
-const email = Credentials.brands.login.email;
-const password = Credentials.brands.login.password;
+const email = Credentials.brands.campaigns.email;
+const password = Credentials.brands.campaigns.password;
 
 describe("Dashboard - Brand", () => {
   beforeEach(function () {
