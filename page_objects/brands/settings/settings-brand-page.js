@@ -12,8 +12,7 @@ class SettingsPage {
         // Map all of the Social accounts into an object
         this.socialAccountsList.forEach(element => {
             socialAccountItems[element.$('.section-title').getText().toLowerCase()] = element.$('.ml-auto');
-        });
-        console.log(socialAccountItems);
+        });        
         // Click on Connect social account by text
         socialAccountItems[socialAccountText].click();
     }
