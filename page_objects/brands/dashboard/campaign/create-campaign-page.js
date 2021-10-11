@@ -22,7 +22,7 @@ class CreateCampaingBrand {
     get $saveCampaignButton() { return $("button=Save");}
     get $closeIcon() { return $('[class="link-item float-right mt-3 mr-3"]');}
     waitAndClickOnNextStepButton = () => {
-    this.$nextStepButton.waitForClickable({ timeout: 5000 });
+    this.$nextStepButton.waitForClickable({ timeout: 20000 });
     this.$nextStepButton.click();
   }
 }

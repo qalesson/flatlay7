@@ -23,10 +23,10 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
  
-  it.skip("FL-32 Should be able to create campaign", () => {
+  it("FL-32 Should be able to create campaign", () => {
     browser.waitUntil(() => {
       return DashboardBrandsPage.$createCampaignButton.isDisplayed();
-    }, { timeout: 10000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
+    }, { timeout: 20000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
     DashboardBrandsPage.$createCampaignButton.click();
     //Creating Campaign step 1/9
     CreateCampaignPage.$campaignCreateFormActiveSection.waitForDisplayed();
@@ -85,7 +85,7 @@ describe("Dashboard - Brand", () => {
     CreateCampaignPage.$goToMyCampaignButton.waitForClickable();
     CreateCampaignPage.$goToMyCampaignButton.click();
     //verifying that campaign with given campaign name (const campaignName) was created
-    browser.pause(10000);
+    browser.pause(20000);
     CampaignsPage.$ongoingCampaignSection.waitForDisplayed({ timeout: 20000 });
     CampaignsPage.$ongoingCampaignTitle.waitForDisplayed({ timeout: 20000 });
 
@@ -96,9 +96,9 @@ describe("Dashboard - Brand", () => {
     );
   });
 
-  it.skip("FL-33 Should not be able to create campaign with past date ", () => {
+  it("FL-33 Should not be able to create campaign with past date ", () => {
     DashboardBrandsPage.$createCampaignButton.waitForClickable({
-      timeout: 10000,
+      timeout: 20000,
     });
     DashboardBrandsPage.$createCampaignButton.click();
     //Creating Campaign step 1/9
