@@ -1,5 +1,5 @@
 const LoginPage = require("../../../page_objects/login-page");
-const Credentials = require("../../../data/credentials.json");
+const Credentials = require("../../../data/Credentials.json");
 const { expect } = require("chai");
 const SearchPage = require("../../../page_objects/creators/search/search-page");
 const DashboardPage = require("../../../page_objects/creators/dashboard/dashboard-creators-page");

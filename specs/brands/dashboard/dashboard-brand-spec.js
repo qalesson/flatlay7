@@ -1,7 +1,7 @@
 const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 
-const Credentials = require("../../../data/credentials.json");
+const Credentials = require("../../../data/Credentials.json");
 const Plans = require("../../../data/plan.json");
 
 const {expect} = require('chai');
@@ -28,8 +28,8 @@ describe('Dashboard - Brand', () => {
     });
 
     it('Should get redirected to saved page upon click on saved FL-68', () => {
-        DashboardBrandsPage.$savedButton.waitForClickable();
-        DashboardBrandsPage.$savedButton.click();
+        DashboardBrandsPage.$listButton.waitForClickable();
+        DashboardBrandsPage.$listButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
@@ -40,8 +40,7 @@ describe('Dashboard - Brand', () => {
     });
 
     it('User should be able to see 4 monthly plans on "Plans" page FL-66', () => {
-        DashboardBrandsPage.$upgradeBtn.waitForClickable();
-        DashboardBrandsPage.$upgradeBtn.click();
+        DashboardBrandsPage.changePlanPage();
 
         browser.waitUntil(() => {
             return DashboardBrandsPage.$$plansLbl.map((elem) => elem.isDisplayed()).length > 3;
@@ -51,9 +50,7 @@ describe('Dashboard - Brand', () => {
         const basic = [];
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             basic.push(element.getText())
-
         })
-
         expect(basic[0]).to.contain(Plans.Basic.name);
         expect(basic[0]).to.contain(Plans.Basic.body.monthlyPrice);
         expect(basic[0]).to.contain(Plans.Basic.body.description1);
@@ -67,7 +64,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             pro.push(element.getText())
         })
-
         expect(pro[0]).to.contain(Plans.Pro.name);
         expect(pro[0]).to.contain(Plans.Pro.body.monthlyPrice);
         expect(pro[0]).to.contain(Plans.Pro.body.description1);
@@ -84,7 +80,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             premium.push(element.getText())
         })
-
         expect(premium[1]).to.contain(Plans.Premium.name);
         expect(premium[1]).to.contain(Plans.Premium.body.monthlyPrice);
         expect(premium[1]).to.contain(Plans.Premium.body.description1);
@@ -100,7 +95,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             enterprise.push(element.getText())
         });
-
         expect(enterprise[1]).to.contain(Plans.Enterprise.name);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description1);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description2);
@@ -112,8 +106,7 @@ describe('Dashboard - Brand', () => {
     });
 
     it('User should be able to see 4 yearly plans on "Plans" page FL-67', () => {
-        DashboardBrandsPage.$upgradeBtn.waitForClickable();
-        DashboardBrandsPage.$upgradeBtn.click();
+        DashboardBrandsPage.changePlanPage();
 
         DashboardBrandsPage.$yearlyPlansBtn.waitForClickable();
         DashboardBrandsPage.$yearlyPlansBtn.click();
@@ -140,7 +133,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             pro.push(element.getText())
         })
-
         expect(pro[0]).to.contain(Plans.Pro.name);
         expect(pro[0]).to.contain(Plans.Pro.body.annualPrice);
         expect(pro[0]).to.contain(Plans.Pro.body.description1);
@@ -157,7 +149,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$proPremiumPlanLbl.forEach(element => {
             premium.push(element.getText())
         })
-
         expect(premium[1]).to.contain(Plans.Premium.name);
         expect(premium[1]).to.contain(Plans.Premium.body.annualPrice);
         expect(premium[1]).to.contain(Plans.Premium.body.description1);
@@ -173,7 +164,6 @@ describe('Dashboard - Brand', () => {
         DashboardBrandsPage.$$basicEnterprisePlanLbl.forEach(element => {
             enterprise.push(element.getText())
         })
-
         expect(enterprise[1]).to.contain(Plans.Enterprise.name);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description1);
         expect(enterprise[1]).to.contain(Plans.Enterprise.body.description2);
