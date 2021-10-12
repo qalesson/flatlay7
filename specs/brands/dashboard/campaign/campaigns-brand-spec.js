@@ -9,8 +9,9 @@ const expect = require("chai").expect;
 const faker = require("faker")
 
 describe("Dashboard - Brand", () => {
-  const email = Credentials.brands.login.email;
-  const password = Credentials.brands.login.password;
+  
+  const email = Credentials.brands.campaigns.email;
+  const password = Credentials.brands.campaigns.password;
   const campaignName = `Test Campaign ${faker.random.word()} for Test Case FL-32 (demo)`
   const editedCampaignName = `Test Campaign ${faker.random.word()} for Test Case FL-32 EDITED (demo)`;
   const campaignDirextionTxt = `Test Campaign direction ${faker.random.words()} for Test Case FL-32 (demo)`
@@ -23,7 +24,7 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
  
-  it.skip("FL-32 Should be able to create campaign", () => {
+  it("FL-32 Should be able to create campaign", () => {
     browser.waitUntil(() => {
       return DashboardBrandsPage.$createCampaignButton.isDisplayed();
     }, { timeout: 20000, timeoutMsg:'Button "Create Campaign" did not show up after 10 seconds'});
@@ -96,7 +97,7 @@ describe("Dashboard - Brand", () => {
     );
   });
 
-  it.skip("FL-33 Should not be able to create campaign with past date ", () => {
+  it("FL-33 Should not be able to create campaign with past date ", () => {
     DashboardBrandsPage.$createCampaignButton.waitForClickable({
       timeout: 20000,
     });
