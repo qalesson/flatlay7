@@ -7,12 +7,13 @@ const DashboardPage = require("../../../page_objects/creators/dashboard/dashboar
 const email = Credentials.creators.login.email;
 const password = Credentials.creators.login.password;
 
-describe("Search - ", () => {
+describe("Search ", () => {
   beforeEach(() => {
     // Go to login page and login as a Creator
     LoginPage.login({ email: email, password: password });
     DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
   });
+
 
   // Search logic is broken. Skipping until fix is in place
   it.skip("FL-9 Should be able to search in ALL sections", () => {
@@ -41,6 +42,7 @@ describe("Search - ", () => {
     SearchPage.$$searchResultsContents.forEach((element) => {
       if (element.getText().length > 0) searchContents.push(element.getText().toLowerCase());
     });
+
     searchContents.every((i) => expect(i).to.contain("ball"));
 
     // Scroll webpage down to Products section
@@ -101,7 +103,7 @@ describe("Search - ", () => {
     const searchContentsOnly = [];
     SearchPage.$$searchResultsContents.forEach((element) => {
       if (element.getText().length > 0) searchContentsOnly.push(element.getText().toLowerCase());
-    });
-    searchContentsOnly.every((i) => expect(i).to.contain("ball"));
+    });   
+    searchContentsOnly.every((i) => expect(i).to.contain("ball"));  
   });
 });

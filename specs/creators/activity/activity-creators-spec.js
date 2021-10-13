@@ -7,7 +7,7 @@ const ActivityPage = require("../../../page_objects/creators/activity/activity-c
 const email = Credentials.creators.activity.email;
 const password = Credentials.creators.activity.password;
 
-describe("Search - ", () => {
+describe("Search ", () => {
   beforeEach(() => {
     // Go to login page and login as a Creator
     LoginPage.login({ email: email, password: password });

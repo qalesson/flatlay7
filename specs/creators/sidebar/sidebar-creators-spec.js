@@ -14,7 +14,7 @@ describe("Sidebar", () => {
         DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
     });
 
-    it("FL-76 should be able to see 10 creators with name, followers and follow btn in 'Creators to follow'", () => {
+    it("FL-76 Should be able to see 10 creators with name, followers and follow btn in 'Creators to follow'", () => {
         //Verifying that 10 'Follow' buttons exist and they are clickable
         browser.waitUntil(() => {
             return SidebarCreatorsPage.$$creatorsFollowBtn.map((elem) => elem.isClickable()).length > 9;
@@ -31,7 +31,7 @@ describe("Sidebar", () => {
         });
     });
 
-    it("FL-77 should be able to see 5+ communities with name and follow button", () => {
+    it("FL-77 Should be able to see 5+ communities with name and follow button", () => {
         //Verify that at least 5 follow buttons exit and clickable
         browser.waitUntil(() => {
             return SidebarCreatorsPage.$$communitiesFollowBtn.map((elem) => elem.isClickable()).length > 4;
