@@ -8,12 +8,12 @@ const { expect } = require('chai');
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
-describe.skip('Dashboard - Brand', () => {
+describe('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it('Brand can filter creators by followers count FL-70', () => {
+    it.skip('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
@@ -37,5 +37,24 @@ describe.skip('Dashboard - Brand', () => {
         expect(parseInt(creatorName[29])).to.be.below(25);
         expect(parseInt(creatorName[33])).to.be.below(25);
         expect(parseInt(creatorName[37])).to.be.below(25);
+    });
+    it('FL-82 List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label', () => {
+        DashboardBrandsPage.$discoverButton.waitForClickable();
+        DashboardBrandsPage.$discoverButton.click();
+        browser.waitUntil(() => {
+            return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
+        }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
+        $$('[class="row discover-campaign-main-section p-3 align-center"]').forEach(element => {
+            let username
+            username = element.$('div=Followers').getText();
+            console.log(username);
+            expect(element.$('[class="ml-1 link-item"] [class="header-title"]').getText()).to.have.lengthOf.above(3);
+            expect(element.$('[class="ml-1 link-item"] [class="content-title"]').getText()).to.have.lengthOf.above(3);
+            // expect(element.parseInt($('[class="col-sm-4 d-flex flex-row justify-content-between align-center"] [class="header-title"]').getText())).to.be.a('number');
+            expect(element.$('[class="col-sm-4 d-flex flex-row justify-content-between align-center"] [class="header-title"]').getText()).to.have.lengthOf.above(3);
+            expect(element.$('div=Followers').getText()).to.be.equal('Followers');
+            expect(element.$('div=Following').getText()).to.be.equal('Following');
+            expect(element.$('div=Engagement').getText()).to.be.equal('Engagement');
+        })
     });
 })
