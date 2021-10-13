@@ -7,7 +7,7 @@ class Login {
     get $emailTxt() { return $('[name="email"]'); }
     get $passwordTxt() { return $('[placeholder="password"]'); }
     get $continueLnk() { return $('span=Continue'); }
-    get $brandsLnk() { return $('[class="btn"] [class="d-none d-md-inline mr-1"]'); }
+    get $brandsLnk() { return $("span=I'm a Brand"); }
     get $iframe () { return $('[data-testid="dialog_iframe"]');}
     get $fBPopupCloseLnk () { return $('[aria-label="close"]');}
 
