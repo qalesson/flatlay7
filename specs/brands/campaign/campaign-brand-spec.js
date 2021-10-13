@@ -1,6 +1,7 @@
 const LoginPage = require("../../../page_objects/login-page");
 const Credentials = require("../../../data/Credentials.json");
 const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
+const SettingsPage = require("../../../page_objects/brands/settings/settings-page")
 const { expect } = require("chai");
 
 const email = Credentials.brands.campaigns.email;
@@ -11,7 +12,7 @@ describe("Dashboard - Brand", () => {
     LoginPage.login({ email: email, password: password, portal: "brands" });
   });
 
-  it("FL-61 Should be able to change start and end day of the draft campaign", () => {    
+  it.skip("FL-61 Should be able to change start and end day of the draft campaign", () => {    
     // Choose the draft campaign
     CampaignsPage.$draftCampaignBtn.waitForDisplayed();
     CampaignsPage.$draftCampaignBtn.click();
