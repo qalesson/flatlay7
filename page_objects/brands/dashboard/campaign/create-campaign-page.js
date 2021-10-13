@@ -5,7 +5,7 @@ class CreateCampaingBrand {
     get $$inputForCampaignStartDate () {return $$('[class="mat-datepicker-toggle-default-icon ng-star-inserted"]')[0];}
     get $$inputForCampaignEndDate () {return $$('[class="mat-datepicker-toggle-default-icon ng-star-inserted"]')[1];}
     get $datePickerToday () { return $('[class="mat-calendar-body-cell-content mat-calendar-body-today"]');}
-    get $nextStepButton () { return $(".next-step-button");}
+    get $nextStepButton () { return $(".next-step-button").$("img");}
     get $campaignContenFirstButton () { return $("p=Photo and Image");}
     get $directionOfContentTextArea () { return $("#DirectionOfContent");}
     get $campaignGoalsDropdownIcon () { return $('.ng-arrow-wrapper');}
@@ -22,8 +22,9 @@ class CreateCampaingBrand {
     get $saveCampaignButton() { return $("button=Save");}
     get $closeIcon() { return $('[class="link-item float-right mt-3 mr-3"]');}
     waitAndClickOnNextStepButton = () => {
-    this.$nextStepButton.waitForClickable({ timeout: 20000 });
-    this.$nextStepButton.click();
+    browser.pause(1000)
+    this.$nextStepButton.waitForClickable();
+    this.$nextStepButton.click();    
   }
 }
 module.exports = new CreateCampaingBrand();
