@@ -8,8 +8,9 @@ const { expect } = require('chai');
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
-describe.skip('Dashboard - Brand', () => {
+describe('Discover - Brand', () => {
     beforeEach(function () {
+        // Login to the Brands account
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
@@ -20,22 +21,35 @@ describe.skip('Dashboard - Brand', () => {
         DashboardBrandDiscover.$sliderMax.waitForClickable({timeout: 30000});
         DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
         DashboardBrandDiscover.$applyFiltersBtn.click()
+        browser.pause(2000);
         browser.waitUntil(() => {
             return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
         }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
-        const creatorName = [];
-        DashboardBrandDiscover.$$creatorsData.forEach(element => {
-            creatorName.push(element.getText().toLowerCase());
-        });
-        expect(parseInt(creatorName[1])).to.be.below(25);
-        expect(parseInt(creatorName[5])).to.be.below(25);
-        expect(parseInt(creatorName[9])).to.be.below(25);
-        expect(parseInt(creatorName[13])).to.be.below(25);
-        expect(parseInt(creatorName[17])).to.be.below(25);
-        expect(parseInt(creatorName[21])).to.be.below(25);
-        expect(parseInt(creatorName[25])).to.be.below(25);
-        expect(parseInt(creatorName[29])).to.be.below(25);
-        expect(parseInt(creatorName[33])).to.be.below(25);
-        expect(parseInt(creatorName[37])).to.be.below(25);
+        
+        // Verify that each creator has less then 25k followers
+        DashboardBrandDiscover.$$creatorsRows.forEach(element => {
+            expect(parseInt(element.$('.justify-content-between :nth-child(1) .header-title').getText().replace(',',''))).to.be.below(25000);        
+        });        
+    });
+
+    it.skip('FL-82 List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label', () => {
+        // Click on Discover btn
+        DashboardBrandsPage.$discoverButton.waitForDisplayed();
+        DashboardBrandsPage.$discoverButton.click();
+
+        browser.waitUntil(() => {
+            return DashboardBrandDiscover.$$creatorsRows.map((elem) => elem.isDisplayed()).length > 3;
+        }, { timeout: 10000, timeoutMsg: 'At least 4 rows of creators have not been displayed' });
+        
+        // Verify that list of creators contains name/username
+        DashboardBrandDiscover.$$creatorsRows.forEach((element) => {
+        expect(element.$('[class="ml-1 link-item"] .header-title').getText().length).to.be.above(2);                   
+        expect(element.$('[class="ml-1 link-item"] .content-title').getText().length).to.be.above(2);                   
+        expect(element.$('.justify-content-between :nth-child(1) .header-title').getText().length).to.be.above(2);                   
+        expect(element.$('.justify-content-between :nth-child(2) .header-title').getText().length).to.be.above(2);                   
+        expect(element.$('.justify-content-between :nth-child(1) .content-title').getText().length).to.be.above(2);                   
+        expect(element.$('.justify-content-between :nth-child(2) .content-title').getText().length).to.be.above(2);                   
+        expect(element.$('.justify-content-between :nth-child(3) .content-title').getText().length).to.be.above(2);                   
+        });        
     });
 })
