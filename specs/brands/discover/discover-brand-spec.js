@@ -21,16 +21,15 @@ describe('Discover - Brand', () => {
         DashboardBrandDiscover.$sliderMax.waitForClickable({timeout: 30000});
         DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
         DashboardBrandDiscover.$applyFiltersBtn.click()
+        browser.pause(2000);
         browser.waitUntil(() => {
             return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
         }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
         
         // Verify that each creator has less then 25k followers
         DashboardBrandDiscover.$$creatorsRows.forEach(element => {
-            expect(Number(element.$('.justify-content-between :nth-child(1) .header-title').getText())).to.be.below(25000);
-            console.log(Number(element.$('.justify-content-between :nth-child(1) .header-title').getText()));
-        });  
-        browser.debug();      
+            expect(parseInt(element.$('.justify-content-between :nth-child(1) .header-title').getText().replace(',',''))).to.be.below(25000);        
+        });        
     });
 
     it.skip('FL-82 List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label', () => {
