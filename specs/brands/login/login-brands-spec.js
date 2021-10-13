@@ -2,13 +2,16 @@ const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../data/Credentials.json")
 
+const BrandsSettingsPage = require('../../../page_objects/brands/settings/settings-brands-page');
+
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
-const emailTest = 'test@gmail.com';
-const passwordTest = 'password';
+const emailTest = 'qalesson@gmail.com';
+const passwordTest = 'qalesson@gmail.com';
 
 describe('Login - Brand', () => {
+    
     it('should be able to login with matching credentials FL-28', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
@@ -28,4 +31,15 @@ describe('Login - Brand', () => {
         LoginPage.login({ email: emailTest, password: passwordTest, portal: 'brands' });
         DashboardBrandsPage.$incorrectUsernameError.waitForDisplayed();
     });
+
+//  it.only('should be able to click connect social media', () => {
+//         LoginPage.login({ email: emailTest, password: passwordTest, portal: 'brands'});
+//         BrandsSettingsPage.$profilePhoto.waitForDisplayed();
+//         BrandsSettingsPage.$profilePhoto.click();
+//         BrandsSettingsPage.$settingsBtn.waitForDisplayed();
+//         BrandsSettingsPage.$settingsBtn.click();
+//         BrandsSettingsPage.clickConnectBtnBySocialMedia('Twitter');
+//         browser.debug();
+
+//     })
 })
