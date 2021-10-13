@@ -13,7 +13,7 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it('Brand can filter creators by followers count FL-70', () => {
+    it.skip('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
