@@ -38,7 +38,7 @@ describe('Dashboard - Brand', () => {
         expect(parseInt(creatorName[33])).to.be.below(25);
         expect(parseInt(creatorName[37])).to.be.below(25);
     });
-    it('List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label', () => {
+    it('FL-82 List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         browser.waitUntil(() => {
