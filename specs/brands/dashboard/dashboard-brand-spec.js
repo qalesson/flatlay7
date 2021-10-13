@@ -107,7 +107,6 @@ describe('Dashboard - Brand', () => {
 
     it('User should be able to see 4 yearly plans on "Plans" page FL-67', () => {
         DashboardBrandsPage.changePlanPage();
-
         DashboardBrandsPage.$yearlyPlansBtn.waitForClickable();
         DashboardBrandsPage.$yearlyPlansBtn.click();
 

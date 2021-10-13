@@ -1,3 +1,4 @@
+ 
 exports.config = {
     //
     // ====================
@@ -60,7 +61,7 @@ exports.config = {
         'goog:chromeOptions': {
             w3c: false,
             args: ['window-size=1920,1080', // - full screen size
-                'headless', // - run automation with or without actual browser. Headless === without
+                //'headless', // - run automation with or without actual browser. Headless === without
                 "no-sandbox", // - this flag is needed in order to run automation in docker container
                 "disable-gpu"] // - this flag is needed in order to run automation in docker container
         }
