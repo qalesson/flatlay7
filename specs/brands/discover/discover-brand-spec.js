@@ -8,7 +8,7 @@ const { expect } = require('chai');
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
 
-describe.skip('Dashboard - Brand', () => {
+describe('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
@@ -17,12 +17,12 @@ describe.skip('Dashboard - Brand', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
-        DashboardBrandDiscover.$sliderMax.waitForClickable({timeout: 30000});
+        DashboardBrandDiscover.$sliderMax.waitForClickable({ timeout: 30000 });
         DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
         DashboardBrandDiscover.$applyFiltersBtn.click()
         browser.waitUntil(() => {
-            return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
-        }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
+            return DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
+        }, { timeout: 10000, timeoutMsg: '5 users has not been displayed' });
         const creatorName = [];
         DashboardBrandDiscover.$$creatorsData.forEach(element => {
             creatorName.push(element.getText().toLowerCase());
@@ -38,4 +38,24 @@ describe.skip('Dashboard - Brand', () => {
         expect(parseInt(creatorName[33])).to.be.below(25);
         expect(parseInt(creatorName[37])).to.be.below(25);
     });
-})
+
+    it("FL-82 List of creators contains name/username, Followers label+amount, Following label+amount, Engagement label", () => {
+        DashboardBrandsPage.$discoverButton.waitForClickable();
+        DashboardBrandsPage.$discoverButton.click();
+
+        browser.waitUntil(() => {
+            return DashboardBrandDiscover.$$creatorsInfo.map((elem) => elem.isDisplayed()).length > 5;
+        }, 10000, '6 items were not visible');
+
+        $$('[class="row discover-campaign-main-section p-3 align-center"]').forEach(element => {
+            expect(element.$('[class="ml-1 link-item"] [class="content-title"]').getText()).to.have.length.above(2);
+            if ($('[class="ml-1 link-item"] [class="header-title"]').length > 2) {
+                expect(element.$('[class="ml-1 link-item"] [class="header-title"]').getText()).to.have.length.above(2);
+            }
+            expect(element.$('[class="col-sm-4 d-flex flex-row justify-content-between align-center"] [class="header-title"]').getText()).to.have.length.above(0);
+            expect(element.$('div=Followers').getText()).to.equal('Followers');
+            expect(element.$('div=Following').getText()).to.equal('Following');
+            expect(element.$('div=Engagement').getText()).to.equal('Engagement');
+        });
+    });
+});
