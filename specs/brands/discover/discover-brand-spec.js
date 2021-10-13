@@ -2,29 +2,25 @@ const LoginPage = require('../../../page_objects/login-page');
 const DashboardBrandsPage = require('../../../page_objects/brands/dashboard/dashboard-brands-page');
 const Credentials = require("../../../data/Credentials.json");
 const DashboardBrandDiscover = require('../../../page_objects/brands/discover/dashboard-brand-discover');
-
 const { expect } = require('chai');
-const dashboardBrandDiscover = require('../../../page_objects/brands/discover/dashboard-brand-discover');
-
 const email = Credentials.brands.login.email;
 const password = Credentials.brands.login.password;
-
 
 describe('Dashboard - Brand', () => {
     beforeEach(function () {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
-
-    it.skip('Brand can filter creators by followers count FL-70', () => {
+  
+    it('Brand can filter creators by followers count FL-70', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
-        DashboardBrandDiscover.$sliderMax.waitForClickable({ timeout: 30000 });
+        DashboardBrandDiscover.$sliderMax.waitForClickable({timeout: 30000});
         DashboardBrandDiscover.$sliderMax.dragAndDrop({ x: -225, y: 0 })
         DashboardBrandDiscover.$applyFiltersBtn.click()
         browser.waitUntil(() => {
-            return DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
-        }, { timeout: 10000, timeoutMsg: '5 users has not been displayed' });
+            return  DashboardBrandDiscover.$$creatorsData.map((elem) => elem.isDisplayed()).length > 5;
+        }, { timeout: 10000, timeoutMsg:'5 users has not been displayed'});
         const creatorName = [];
         DashboardBrandDiscover.$$creatorsData.forEach(element => {
             creatorName.push(element.getText().toLowerCase());
