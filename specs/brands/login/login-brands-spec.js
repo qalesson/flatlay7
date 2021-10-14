@@ -9,13 +9,13 @@ const emailTest = 'test@gmail.com';
 const passwordTest = 'password';
 
 describe('Login - Brand', () => {
-    it('should be able to login with matching credentials FL-28', () => {
+    it('FL-28 should be able to login with matching credentials', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
 
     });
 
-    it('should be able to sign out FL-29', () => {
+    it('FL-29 should be able to sign out', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
         DashboardBrandsPage.$campaignsButton.waitForDisplayed();
         DashboardBrandsPage.$profileImage.click();
@@ -24,7 +24,7 @@ describe('Login - Brand', () => {
 
     });
 
-    it('should not be able to login with incorrect credentials FL-30', () => {
+    it('FL-30 should not be able to login with incorrect credentials', () => {
         LoginPage.login({ email: emailTest, password: passwordTest, portal: 'brands' });
         DashboardBrandsPage.$incorrectUsernameError.waitForDisplayed();
     });

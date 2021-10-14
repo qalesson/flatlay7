@@ -6,7 +6,7 @@ const email = Credentials.creators.login.email;
 const password = Credentials.creators.login.password;
 
 describe('Login - Creators', () => {
-    it('should be able to login with matching credentials FL-1', () => {
+    it('FL-1 Should be able to login with matching credentials', () => {
         LoginPage.login({email: email, password: password});
         DashboardPage.$accountSettingsLnk.waitForDisplayed({timeoutMsg: 'User was not able to login'});
     })
