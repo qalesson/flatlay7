@@ -1,6 +1,7 @@
 "use strict";
 
 const dashboardBrandsPage = require("./brands/dashboard/dashboard-brands-page");
+const CampaignsApi = require("../api/brands/campaigns-api")
 
 class Login {
     // Reusable selector getters that will help us to avoid selector duplicates
@@ -29,6 +30,10 @@ class Login {
 
         // Click on continue aka login
         this.$continueLnk.click();
+        this.$continueLnk.waitForClickable({ reverse: true });
+        CampaignsApi.$selectorForToken.waitForExist({ timeout: 10000 });
+        return browser.execute("return localStorage.brandToken");
+        
     }
 
     closeFBPopup() {

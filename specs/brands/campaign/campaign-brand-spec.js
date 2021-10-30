@@ -2,19 +2,31 @@ const LoginPage = require("../../../page_objects/login-page");
 const Credentials = require("../../../data/Credentials.json");
 const CampaignsPage = require("../../../page_objects/brands/campaign/campaigns-page");
 const { expect } = require("chai");
+const CampaignsApi = require("../../../api/brands/campaigns-api");
+const faker = require('faker');
 
-const email = Credentials.brands.campaigns.email;
-const password = Credentials.brands.campaigns.password;
+const email = Credentials.brands.login.email;
+const password = Credentials.brands.login.password;
+
+let token;
 
 describe("Dashboard - Brand", () => {
   beforeEach(function () {
-    LoginPage.login({ email: email, password: password, portal: "brands" });
+    token = LoginPage.login({ email: email, password: password, portal: "brands" });
   });
 
   it("FL-61 Should be able to change start and end day of the draft campaign", () => {    
-    // Choose the draft campaign
-    CampaignsPage.$draftCampaignBtn.waitForDisplayed();
-    CampaignsPage.$draftCampaignBtn.click();
+    const randomName = faker.random.words(4);
+    browser.call(async () => {
+      // Create campaign using faker lbr for the campaign's name
+      
+      await CampaignsApi.createCampaign(randomName, token);
+    });
+    
+    // Choose the api campaign
+    $(`li=${randomName}`).waitForDisplayed();
+    $(`li=${randomName}`).click();
+    // CampaignsPage.navigateToApiCampaign(randomName);    
 
     // Click on Edit campaign under the "Days left" section
     CampaignsPage.$editCampaignDateBtn.waitForDisplayed();
