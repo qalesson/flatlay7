@@ -10,4 +10,3 @@ How to run single spec?
 npx wdio wdio.conf.js -- spec specs/creators/login/login-creators-spec.js
 How to run all specs ?
 npx wdio wdio.conf.js
-what
