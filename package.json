@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@wdio/allure-reporter": "^7.16.3",
     "@wdio/cli": "^7.5.2",
     "@wdio/local-runner": "^7.5.2",
     "@wdio/mocha-framework": "^7.5.2",
@@ -22,6 +23,9 @@
   "dependencies": {
     "chai": "^4.3.4",
     "chrome": "^0.1.0",
-    "faker": "^5.5.3"
+    "faker": "^5.5.3",
+    "axios": "^0.24.0",
+    "mocha-allure-reporter": "^1.4.0"
+
   }
 }
