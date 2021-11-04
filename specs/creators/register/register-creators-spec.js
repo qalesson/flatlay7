@@ -3,6 +3,7 @@ const DashboardPage = require("../../../page_objects/creators/dashboard/dashboar
 const mailosaurTest = require("../../../data/mailosaurTest.json");
 const faker = require("faker");
 const MailosaurClient = require("mailosaur");
+const { expect } = require("chai");
 
 describe("Register - Creators", () => {
   it("should be able to register with matching credentials FL-1", () => {
@@ -20,20 +21,29 @@ describe("Register - Creators", () => {
 
     LoginPage.$continueLnk.waitForDisplayed();
     LoginPage.register("creators", randomEmail, randomPassword, randomUsername);
-
-    browser.call(async () => {
+    // Getting email confirmation message from the user inbox
+    const confirmationEmail = browser.call(async () => {
       const apiKey = mailosaurTest.register.apiKey;
       const serverId = mailosaurTest.register.serverId;
-
       const mailosaur = new MailosaurClient(apiKey);
-
       const criteria = {
         sentTo: randomEmail,
       };
+      const email = await mailosaur.messages.get(serverId, criteria, {
+        timeout: 5000000,
+      });
+      return email;
+    });
+    // Click on email confirmation link
+    let emailLink = confirmationEmail.html.links.filter((link) => {
+      return link.text === "TAKE ME TO FLATLAY";
+    });
+    browser.url(emailLink[0].href);
 
-      const email = await mailosaur.messages.get(serverId, criteria);
-
-      console.log(`Subject: ${email.subject}`);
-    })();
+    // Confirm that email confirmation link is working
+    LoginPage.$welcomeBackLbl.waitForDisplayed();
+    expect(LoginPage.$welcomeBackLbl.getText()).to.equal(
+      "Welcome back to the community"
+    );
   });
 });

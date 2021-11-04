@@ -17,6 +17,7 @@ class Login {
     get $creatorsToFollowDisplay() { return $('[class="creators-wrapper mb-3"]'); }
     get $startExploringBtn() { return $("button=Start exploring"); }
     get $continueBtn() { return $("button=Continue"); }
+    get $welcomeBackLbl() { return $("h3=Welcome back to the community");}
 
     // Helper method to avoid code duplication
     login({ email, password, portal, url = 'login' }) {
