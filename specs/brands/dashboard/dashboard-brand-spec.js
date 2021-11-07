@@ -15,31 +15,31 @@ describe('Dashboard - Brand', () => {
         LoginPage.login({ email: email, password: password, portal: 'brands' });
     });
 
-    it('Should get redirected to discover page upon click on discover FL-34', () => {
+    it('FL-34 Should get redirected to discover page upon click on discover', () => {
         DashboardBrandsPage.$discoverButton.waitForClickable();
         DashboardBrandsPage.$discoverButton.click();
         DashboardBrandsPage.$discoverCreatorsByLink.waitForDisplayed();
     });
 
-    it('Should get redirected to campaigns page upon click on campaigns FL-35', () => {
+    it('FL-35 Should get redirected to campaigns page upon click on campaigns', () => {
         DashboardBrandsPage.$campaignsButton.waitForClickable()
         DashboardBrandsPage.$campaignsButton.click();
         DashboardBrandsPage.$campaignsNavigationBar.waitForDisplayed();
     });
 
-    it('Should get redirected to saved page upon click on saved FL-68', () => {
+    it('FL-68 Should get redirected to saved page upon click on saved', () => {
         DashboardBrandsPage.$listButton.waitForClickable();
         DashboardBrandsPage.$listButton.click();
         DashboardBrandsPage.$createNewListLink.waitForDisplayed();
     });
 
-    it('Should get redirected to home page upon click on home FL-69', () => {
+    it('FL-69 Should get redirected to home page upon click on home', () => {
         DashboardBrandsPage.$homeButton.waitForClickable();
         DashboardBrandsPage.$homeButton.click();
         DashboardBrandsPage.$currentUserName.waitForDisplayed();
     });
 
-    it('User should be able to see 4 monthly plans on "Plans" page FL-66', () => {
+    it('FL-66 User should be able to see 4 monthly plans on "Plans" page', () => {
         DashboardBrandsPage.changePlanPage();
 
         browser.waitUntil(() => {
@@ -105,7 +105,7 @@ describe('Dashboard - Brand', () => {
 
     });
 
-    it('User should be able to see 4 yearly plans on "Plans" page FL-67', () => {
+    it('FL-67 User should be able to see 4 yearly plans on "Plans" page', () => {
         DashboardBrandsPage.changePlanPage();
 
         DashboardBrandsPage.$yearlyPlansBtn.waitForClickable();
