@@ -1,39 +1,25 @@
 const LoginPage = require("../../../page_objects/login-page");
-const DashboardPage = require("../../../page_objects/creators/dashboard/dashboard-creators-page");
-const mailosaurTest = require("../../../data/mailosaurTest.json");
-const faker = require("faker");
-const MailosaurClient = require("mailosaur");
 const { expect } = require("chai");
+const RegistrationPage = require("../../../page_objects/registration-page");
 
 describe("Register - Creators", () => {
   it("should be able to register with matching credentials FL-1", () => {
+    // Open Homepage
     browser.url("./");
 
-    //   Click on Join Today btn
-    LoginPage.$joinTodayBtn.waitForDisplayed();
-    LoginPage.$joinTodayBtn.click();
+    // Click on Join Today btn
+    RegistrationPage.$joinTodayBtn.waitForDisplayed();
+    RegistrationPage.$joinTodayBtn.click();
 
-    //   Fill in register fields with data
-    const randomEmail =
-      faker.internet.userName() + mailosaurTest.register.serverDomain;
-    const randomPassword = faker.internet.password();
-    const randomUsername = faker.internet.userName();
-
+    // Fill in register fields with data
     LoginPage.$continueLnk.waitForDisplayed();
-    LoginPage.register("creators", randomEmail, randomPassword, randomUsername);
+    RegistrationPage.register("creators");
+
     // Getting email confirmation message from the user inbox
-    const confirmationEmail = browser.call(async () => {
-      const apiKey = mailosaurTest.register.apiKey;
-      const serverId = mailosaurTest.register.serverId;
-      const mailosaur = new MailosaurClient(apiKey);
-      const criteria = {
-        sentTo: randomEmail,
-      };
-      const email = await mailosaur.messages.get(serverId, criteria, {
-        timeout: 5000000,
-      });
-      return email;
-    });
+    const confirmationEmail = browser.call(
+      async () => await RegistrationPage.mailosaurInbox()
+    );
+
     // Click on email confirmation link
     let emailLink = confirmationEmail.html.links.filter((link) => {
       return link.text === "TAKE ME TO FLATLAY";
@@ -41,8 +27,8 @@ describe("Register - Creators", () => {
     browser.url(emailLink[0].href);
 
     // Confirm that email confirmation link is working
-    LoginPage.$welcomeBackLbl.waitForDisplayed();
-    expect(LoginPage.$welcomeBackLbl.getText()).to.equal(
+    RegistrationPage.$welcomeBackLbl.waitForDisplayed();
+    expect(RegistrationPage.$welcomeBackLbl.getText()).to.equal(
       "Welcome back to the community"
     );
   });
