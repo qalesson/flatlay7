@@ -1,4 +1,5 @@
 "use strict";
+
 class CampaignsBrand {  
   get $$campaignStatusLbl() {return $$('.campaign-status');}
   get $activeCampaignBtn () {return $('.status-icon-active');}
@@ -7,10 +8,12 @@ class CampaignsBrand {
   get $draftCampaignStartCalendar () {return $('//*[@formcontrolname="startdate"]/../following-sibling::div');}
   get $draftCampaignEndCalendar () {return $('//*[@formcontrolname="enddate"]/../following-sibling::div');}
   get $chooseDateBtn () {return $('[aria-label="Choose month and year"]');}
-  get $currentDateBtn () {return $('.mat-calendar-body-today');}
-  get $tomorrowDateBtn () {return $('//*[@class="mat-calendar-body-cell-content mat-calendar-body-today"]/../following-sibling::td');}
+  get $currentDateBtn () {return $('.mat-calendar-body-selected');}
+  get $tomorrowDateBtn () {return $('.mat-calendar-body-active');}
   get $saveDateBtn () {return $('.btn-save');}
-  get $saveDateMsg () {return $('[role="alertdialog"]');} 
+  get $saveDateMsg() { return $('[role="alertdialog"]'); }
+  get $$ongoingCampaignsTitle() { return $$(".card-ongoing-campaign-title"); }
+  get $apiCampaignName() {return $(`li=${campaignName}`);}
 
   selectCurrentDate() {
     this.$chooseDateBtn.waitForDisplayed();
@@ -33,7 +36,6 @@ class CampaignsBrand {
     this.$tomorrowDateBtn.waitForDisplayed();
     this.$tomorrowDateBtn.click();
   };
-
 }
 
 module.exports = new CampaignsBrand(); 

@@ -195,6 +195,10 @@ exports.config = {
      */
     // before: function (capabilities, specs) {
     // },
+    before: () => {
+        const faker = require("faker");
+        global.campaignName = faker.random.words(4);
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
