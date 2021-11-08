@@ -199,9 +199,8 @@ exports.config = {
     global.campaignName = faker.random.words(4);
     global.apiKey = "YmiJavgRdInngPRW";
     global.serverId = "fiwhae8i";
+    global.serverDomain = "@fiwhae8i.mailosaur.net";    
     global.mailosaur = new MailosaurClient(apiKey);
-    global.randomEmail = faker.internet.userName() + "@fiwhae8i.mailosaur.net";
-    global.criteria = { sentTo: randomEmail };
   },
     /**
      * Runs before a WebdriverIO command gets executed.

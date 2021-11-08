@@ -2,6 +2,7 @@
 
 const LoginPage = require("../page_objects/login-page")
 const faker = require("faker");
+const randomEmail = faker.internet.userName() + serverDomain;
 const randomPassword = faker.internet.password();
 const randomUsername = faker.internet.userName();
 
@@ -45,6 +46,7 @@ class Registration {
   }
 
   async mailosaurInbox() {
+    const criteria = { sentTo: randomEmail };
     const email = await mailosaur.messages.get(serverId, criteria, {
       timeout: 5000000,
     });
