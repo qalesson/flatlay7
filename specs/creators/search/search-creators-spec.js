@@ -11,7 +11,9 @@ describe("Search - ", () => {
   beforeEach(() => {
     // Go to login page and login as a Creator
     LoginPage.login({ email: email, password: password });
-    DashboardPage.$accountSettingsLnk.waitForDisplayed({ timeoutMsg: 'User was not able to login' });
+    DashboardPage.$accountSettingsLnk.waitForDisplayed({
+      timeoutMsg: "User was not able to login",
+    });
   });
 
   // Search logic is broken. Skipping until fix is in place
@@ -25,21 +27,29 @@ describe("Search - ", () => {
     browser.keys("Enter");
 
     // Wait for search results to display
-    browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsCreators.map((elem) => elem.isDisplayed()).length > 3);
-    }, { timeout: 20000, timeoutMsg: "Creators results were not visible" });
+    browser.waitUntil(
+      () => {
+        return (
+          SearchPage.$$searchResultsCreators.map((elem) => elem.isDisplayed())
+            .length > 3
+        );
+      },
+      { timeout: 20000, timeoutMsg: "Creators results were not visible" }
+    );
 
     // Verify that user can see relevant search results in Creators section
     const searchCreators = [];
     SearchPage.$$searchResultsCreators.forEach((element) => {
-      if (element.getText().length > 0) searchCreators.push(element.getText().toLowerCase());
+      if (element.getText().length > 0)
+        searchCreators.push(element.getText().toLowerCase());
     });
     searchCreators.every((i) => expect(i).to.contain("ball"));
 
-    // Verify that user can see relevant search results in Contents section  
+    // Verify that user can see relevant search results in Contents section
     const searchContents = [];
     SearchPage.$$searchResultsContents.forEach((element) => {
-      if (element.getText().length > 0) searchContents.push(element.getText().toLowerCase());
+      if (element.getText().length > 0)
+        searchContents.push(element.getText().toLowerCase());
     });
     searchContents.every((i) => expect(i).to.contain("ball"));
 
@@ -47,14 +57,21 @@ describe("Search - ", () => {
     SearchPage.$productsLbl.moveTo();
 
     // Verify that user can see relevant search results in Products section
-    browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsProducts.map((elem) => elem.isDisplayed()).length > 3);
-    }, { timeout: 20000, timeoutMsg: 'No results in Products section!' });
+    browser.waitUntil(
+      () => {
+        return (
+          SearchPage.$$searchResultsProducts.map((elem) => elem.isDisplayed())
+            .length > 3
+        );
+      },
+      { timeout: 20000, timeoutMsg: "No results in Products section!" }
+    );
 
     // Verify that user can see relevant search results in Products section
     const searchProducts = [];
     SearchPage.$$searchResultsProducts.forEach((element) => {
-      if (element.getText().length > 0) searchProducts.push(element.getText().toLowerCase());
+      if (element.getText().length > 0)
+        searchProducts.push(element.getText().toLowerCase());
     });
     searchProducts.every((i) => expect(i).to.contain("ball"));
   });
@@ -70,14 +87,22 @@ describe("Search - ", () => {
     browser.keys("Enter");
 
     // Wait for search results to display
-    browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsCreatorsOnly.map((elem) => elem.isDisplayed()).length > 3);
-    }, { timeout: 10000, timeoutMsg: "Creators results were not visible" });
+    browser.waitUntil(
+      () => {
+        return (
+          SearchPage.$$searchResultsCreatorsOnly.map((elem) =>
+            elem.isDisplayed()
+          ).length > 3
+        );
+      },
+      { timeout: 10000, timeoutMsg: "Creators results were not visible" }
+    );
 
     // Verify that user can see relevant search results in Creators section
     const searchCreatorsOnly = [];
     SearchPage.$$searchResultsCreatorsOnly.forEach((element) => {
-      if (element.getText().length > 0) searchCreatorsOnly.push(element.getText().toLowerCase());
+      if (element.getText().length > 0)
+        searchCreatorsOnly.push(element.getText().toLowerCase());
     });
     searchCreatorsOnly.every((i) => expect(i).to.contain("ball"));
   });
@@ -93,14 +118,21 @@ describe("Search - ", () => {
     browser.keys("Enter");
 
     // Wait for search results to display
-    browser.waitUntil(() => {
-      return (SearchPage.$$searchResultsContents.map((elem) => elem.isDisplayed()).length > 3);
-    }, { timeout: 10000, timeoutMsg: "Contents results were not visible" });
+    browser.waitUntil(
+      () => {
+        return (
+          SearchPage.$$searchResultsContents.map((elem) => elem.isDisplayed())
+            .length > 3
+        );
+      },
+      { timeout: 10000, timeoutMsg: "Contents results were not visible" }
+    );
 
     // Verify that user can see relevant search results in Contents section
     const searchContentsOnly = [];
     SearchPage.$$searchResultsContents.forEach((element) => {
-      if (element.getText().length > 0) searchContentsOnly.push(element.getText().toLowerCase());
+      if (element.getText().length > 0)
+        searchContentsOnly.push(element.getText().toLowerCase());
     });
     searchContentsOnly.every((i) => expect(i).to.contain("ball"));
   });

@@ -16,12 +16,16 @@
     "@wdio/mocha-framework": "^7.5.2",
     "@wdio/spec-reporter": "^7.5.2",
     "@wdio/sync": "^7.3.0",
-    "chromedriver": "^94.0.0",
+    "chromedriver": "^95.0.0",
+    "mailosaur": "^7.4.0",
     "wdio-chromedriver-service": "^7.0.0"
   },
   "dependencies": {
-    "axios": "^0.24.0",
     "chai": "^4.3.4",
+    "chrome": "^0.1.0",
+    "faker": "^5.5.3",
+    "axios": "^0.24.0",
     "mocha-allure-reporter": "^1.4.0"
+
   }
 }

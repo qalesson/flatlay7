@@ -4,12 +4,15 @@ const dashboardBrandsPage = require("./brands/dashboard/dashboard-brands-page");
 
 class Login {
     // Reusable selector getters that will help us to avoid selector duplicates
-    get $emailTxt() { return $('[name="email"]'); }
+    get $emailTxt() { return $("#mat-input-1"); }
     get $passwordTxt() { return $('[placeholder="password"]'); }
     get $continueLnk() { return $('span=Continue'); }
     get $brandsLnk() { return $("span=I'm a Brand"); }
     get $iframe () { return $('[data-testid="dialog_iframe"]');}
     get $fBPopupCloseLnk () { return $('[aria-label="close"]');}
+    get $fBPopupCloseLnk() { return $('[aria-label="close"]'); }
+    
+    get $usernameTxt() { return $("#mat-input-0"); }    
 
     // Helper method to avoid code duplication
     login({ email, password, portal, url = 'login' }) {
@@ -37,6 +40,6 @@ class Login {
             this.$fBPopupCloseLnk.click()
             browser.switchToFrame(null);
         }
-    }
+    }    
 }
 module.exports = new Login();
