@@ -1,13 +1,8 @@
 "use strict";
 const axios = require('axios');
 const baseApi = "https://api.flatlay.io";
-const faker = require("faker");
-const campaignName = faker.random.words(4);
 
 class CampaignsBrandsApi {
-get $selectorForToken() {return $(".brand-layout");} 
-get $apiCampaignName() {return $(`li=${campaignName}`);} 
-
     async createCampaign(token) {        
         const body = {
             "photos": [], "product": false, "isPublic": true,

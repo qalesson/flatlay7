@@ -21,8 +21,8 @@ describe("Dashboard - Brand", () => {
     });
     
     // Choose the api campaign
-    CampaignsApi.$apiCampaignName.waitForDisplayed();
-    CampaignsApi.$apiCampaignName.click();        
+    CampaignsPage.$apiCampaignName.waitForDisplayed();
+    CampaignsPage.$apiCampaignName.click();        
 
     // Click on Edit campaign under the "Days left" section
     CampaignsPage.$editCampaignDateBtn.waitForDisplayed();

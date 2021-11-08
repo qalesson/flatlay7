@@ -1,4 +1,5 @@
 "use strict";
+
 class CampaignsBrand {  
   get $$campaignStatusLbl() {return $$('.campaign-status');}
   get $activeCampaignBtn () {return $('.status-icon-active');}
@@ -11,7 +12,8 @@ class CampaignsBrand {
   get $tomorrowDateBtn () {return $('.mat-calendar-body-active');}
   get $saveDateBtn () {return $('.btn-save');}
   get $saveDateMsg() { return $('[role="alertdialog"]'); }
-  get $$ongoingCampaignsTitle() {return $$(".card-ongoing-campaign-title");}
+  get $$ongoingCampaignsTitle() { return $$(".card-ongoing-campaign-title"); }
+  get $apiCampaignName() {return $(`li=${campaignName}`);}
 
   selectCurrentDate() {
     this.$chooseDateBtn.waitForDisplayed();
