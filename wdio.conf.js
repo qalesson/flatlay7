@@ -193,8 +193,16 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: () => {
+    const faker = require("faker");
+    const MailosaurClient = require("mailosaur");
+    global.campaignName = faker.random.words(4);
+    global.apiKey = "YmiJavgRdInngPRW";
+    global.serverId = "fiwhae8i";
+    global.mailosaur = new MailosaurClient(apiKey);
+    global.randomEmail = faker.internet.userName() + "@fiwhae8i.mailosaur.net";
+    global.criteria = { sentTo: randomEmail };
+  },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

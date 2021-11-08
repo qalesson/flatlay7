@@ -2,10 +2,6 @@
 
 const LoginPage = require("../page_objects/login-page")
 const faker = require("faker");
-const mailosaurTest = require("../data/mailosaurTest.json");
-const MailosaurClient = require("mailosaur");
-const randomEmail =
-  faker.internet.userName() + mailosaurTest.register.serverDomain;
 const randomPassword = faker.internet.password();
 const randomUsername = faker.internet.userName();
 
@@ -32,7 +28,8 @@ class Registration {
       LoginPage.$passwordTxt.setValue(randomPassword);
       LoginPage.$usernameTxt.setValue(randomUsername);
       LoginPage.$continueLnk.click();
-    }
+    } else { throw (new Error('Portal should be "brands" or "creators"!')) };
+    
     // Choose communities to follow
     LoginPage.$continueLnk.waitForClickable();
     this.$sportsCommunityLbl.click();
@@ -48,10 +45,6 @@ class Registration {
   }
 
   async mailosaurInbox() {
-    const apiKey = mailosaurTest.register.apiKey;
-    const serverId = mailosaurTest.register.serverId;
-    const mailosaur = new MailosaurClient(apiKey);
-    const criteria = { sentTo: randomEmail };
     const email = await mailosaur.messages.get(serverId, criteria, {
       timeout: 5000000,
     });
